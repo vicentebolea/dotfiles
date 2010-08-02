@@ -1,0 +1,22 @@
+#Environment variables -----------------------------------------------
+case "$TERM" in
+ "xterm") export TERM="xterm-256color" ;;
+ "putty") export TERM="putty-256color" ;;
+ "gnome") export TERM="gnome-256color" ;;
+esac
+
+if [[ "$TERM" =~ .*256color ]]; then
+  # Check for customize dircolors
+  [ -e "$HOME/.dircolors" ] && DIR_COLORS="$HOME/.dircolors"
+  [ -e "$DIR_COLORS" ] || DIR_COLORS=""
+  eval "`dircolors -b $DIR_COLORS`"
+fi
+
+export HISTCONTROL=ignoreboth
+export HISTSIZE=1000
+export HISTFILESIZE=2000
+export EDITOR="vim"
+export LC
+export LC_ALL=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+# vim: ft=sh :
