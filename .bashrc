@@ -5,6 +5,7 @@ if [ $BASH_VERSINFO -ge 4 ]; then
   shopt -s autocd
 fi 
 set -o vi
+stty -ixon
 
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
 [ -f ~/.bash_prompt ] && . ~/.bash_prompt
