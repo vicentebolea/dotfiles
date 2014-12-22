@@ -6,10 +6,11 @@
 My personal configuration for the Linux terminal with 256 colors.
 
 ###Features:
- - BASH configuration with a cool prompt and separated file structure to ease distribute your configuratiom.
+ - BASH configuration with a cool prompt and a separated file structure to ease distributing your configuratiom accross different machines.
  - VIM configuration and selection of Plugins focussed in C/C++ development. 
  - GDB configuration which support C++ standard library data strutures and more fancy things.
- - SCREEN & TMUX configuration to make it more fancy and support 256 colors with vim
+ - SCREEN & TMUX configuration to make it more fancy and support 256 colors with vim.
+ - GIT configuration with several shortcuts and colors.
  - More..
 
 ###Requirements: 
@@ -35,7 +36,7 @@ Launch the vim editor and then run the second command in the command mode:
  - __AUTHOR:__ [Vicente Adolfo Bolea Sanchez] [vicente].
 
 ## Thanks to...
- - [DFM] [dfm]:                    a.k.a DotFilesManager, made possible having the dotfiles in a separated directory.
+ - [DFM] [dfm]:                    a.k.a Dot Files Manager, made possible having the dotfiles in a separated directory.
  - [mathiasbynens/dotfiles] [mat]: Some of the ideas are taking from this repository.
 
 
