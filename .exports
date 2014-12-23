@@ -1,6 +1,6 @@
 #Environment variables -----------------------------------------------
 case "$TERM" in
- "xterm") export TERM="xterm-256color" ;;
+ "xterm") export TERM="screen-256color" ;;
  "putty") export TERM="putty-256color" ;;
  "gnome") export TERM="gnome-256color" ;;
 esac
@@ -12,9 +12,10 @@ if [[ "$TERM" =~ .*256color ]]; then
   eval "`dircolors -b $DIR_COLORS`"
 fi
 
-export HISTCONTROL=ignoreboth
-export HISTSIZE=1000
-export HISTFILESIZE=2000
+export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help:ll"
+export HISTCONTRO=ignoreboth
+export HISTSIZE=100000
+export HISTFILESIZE=100000
 export EDITOR="vim"
 export LC
 export LC_ALL=en_US.UTF-8

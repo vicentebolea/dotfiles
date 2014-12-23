@@ -1,0 +1,12 @@
+set editing-mode vi
+
+set keymap vi-insert
+# Edit options before rerunning previous command, eg: ls a b c -> ls -al a b c
+"\e/": menu-complete
+"\ee": glob-expand-word
+"\C-l": clear-screen
+"\C-x\C-r": re-read-init-file
+
+set keymap vi-command
+"gg": beginning-of-history
+"G": end-of-history
