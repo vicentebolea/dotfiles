@@ -13,10 +13,8 @@ Plugin 'SuperTab'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Raimondi/delimitMate'
+Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
 Plugin 'majutsushi/tagbar'
 call vundle#end()
 
@@ -37,9 +35,18 @@ set number
 set exrc
 set incsearch
 set hlsearch
+set wildignore=*.o,*.class,*.pyc
+
+"Set backup off since we are always using git :D
+set noswapfile
+set nobackup
+set nowb
 
 "Correct broken redraw
 set ttyfast
+set noerrorbells
+set novisualbell
+set t_vb=
 set lazyredraw
 
 "Indentation
@@ -51,7 +58,7 @@ set bs=2
 
 "Deal with html
 autocmd FileType html setlocal sw=2 ts=2 et smartindent
-autocmd FileType python setlocal sw=2 ts=2 noexpandtab
+autocmd FileType python,Makefile setlocal sw=2 ts=2 noexpandtab
 
 "Autocomplete  {{{
 set dictionary+=/usr/share/dict/words
@@ -73,6 +80,9 @@ set completeopt=menuone,menu,longest,preview
 
 "}}}
 "Key-binding {{{
+let mapleader = ","
+let g:mapleader = ","
+
 nmap <F2> :bprevious<Enter>
 nmap <F3> :bnext<Enter>
 nmap <F4> :enew<Enter>
@@ -82,6 +92,10 @@ nmap <F7> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q . <Enter>
 nmap <F9> :NERDTreeToggle<Enter>
 nmap <F8> :TagbarToggle<Enter>
 imap <C-Tab> :<Plug>snipMateNextOrTrigger<Enter>
+
+nmap <leader>w :w!<cr>
+nmap <leader>bd :bdelete<cr>
+nmap <leader>ss :setlocal spell!<cr>
 
 "Abbrevations 
 ab W w
@@ -130,4 +144,7 @@ match Error /{{{\|}}}/
 "let g:tagbar_compact = 1
 "let g:tagbar_width = 30
 "
+"}}}
+"SuperTab | utisnipts {{{
+let g:SuperTabDefaultCompletionType = "context"
 "}}}
