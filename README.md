@@ -40,7 +40,7 @@ You can create a file called *.bash_independent* in your home directory which wi
 Go to dotfiles directory
 
     $ cd ~/.dotfiles
-    $ git pull --reset
+    $ git pull --rebase
 
 This will not delete the .bash_independent file.
 
