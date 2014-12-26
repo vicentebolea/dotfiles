@@ -2,7 +2,7 @@
 
 ## Overview
 
-![Alt Text](https://raw.github.com/vicentebolea/dotfiles/master/screenshot.png "ScreenShot")
+![Alt Text](https://raw.github.com/vicentebolea/dotfiles/master/screenshot.gif "ScreenShot")
 My personal configuration for the Linux terminal with 256 colors.
 
 ###Features:
@@ -32,7 +32,19 @@ Launch the vim editor and then run the second command in the command mode:
     $ vim
     $ :PluginInstall
 
-## AUTHOR
+###Personal costumization
+
+You can create a file called *.bash_independent* in your home directory which will be called in the last line of the .bashrc file.
+
+###How to update it
+Go to dotfiles directory
+
+    $ cd ~/.dotfiles
+    $ git pull --reset
+
+This will not delete the .bash_independent file.
+
+## Authors
  - __AUTHOR:__ [Vicente Adolfo Bolea Sanchez] [vicente].
 
 ## Thanks to...
