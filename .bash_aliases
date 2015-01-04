@@ -25,5 +25,7 @@ alias myip="lynx -dump checkip.dyndns.org"
 
 alias ua='update-alternatives'
 alias uac='update-alternatives --config'
-# vim: ft=sh :
+
+alias df='df -H'
+alias du='du -ch'
 # vim: ft=sh :
