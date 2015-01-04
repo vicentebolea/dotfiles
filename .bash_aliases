@@ -21,6 +21,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 alias myip="lynx -dump checkip.dyndns.org"
 
+complete -F _root_command s
 alias s='sudo '
 alias se='sudo -e'
 
