@@ -1,6 +1,7 @@
 ## vim: ft=sh :
 
-function help_dotfiles {
+function help_dotfiles 
+{
   printf "\n"
   printf "Prompt cheatsheet:\n"
   printf "  - [+]: Uncomitted changes \n"

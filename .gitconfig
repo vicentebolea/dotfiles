@@ -21,6 +21,8 @@
   untracked = red bold
 [diff]
   tool = vimdiff 
+[merge]
+	tool = vimdiff
 [alias]
   a = add --all
   ai = add -i

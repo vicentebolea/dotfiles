@@ -22,5 +22,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias ls='ls -hXF --color=tty'
 alias tree='tree -C'
 alias myip="lynx -dump checkip.dyndns.org"
-alias se='sudo -e'
+
+alias ua='update-alternatives'
+alias uac='update-alternatives --config'
+# vim: ft=sh :
 # vim: ft=sh :
