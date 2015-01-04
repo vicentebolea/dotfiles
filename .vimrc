@@ -72,6 +72,16 @@ set wildignore=*.o,*.class,*.pyc
 autocmd FileType html setlocal sw=2 ts=2 et smartindent
 autocmd FileType python,Makefile setlocal sw=2 ts=2 noexpandtab
 " }}}
+" Gvim {{{
+if has('gui_running')
+  set guifont=Courier\ 10\ Pitch\ Bold\ 12
+  set linespace=2     " Better line-height
+  set guioptions-=m  "remove menu bar
+  set guioptions-=T  "remove toolbar
+  set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=L  "remove left-hand scroll bar
+endif
+" }}}
 "Autocomplete  {{{
 set dictionary+=/usr/share/dict/words
 set tags=~/.vim/tags/stl.tags

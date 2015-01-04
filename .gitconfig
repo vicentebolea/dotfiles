@@ -23,6 +23,8 @@
   tool = vimdiff 
 [merge]
 	tool = vimdiff
+[push]
+  default = current
 [alias]
   a = add --all
   ai = add -i
@@ -68,7 +70,7 @@
   g = grep -p
 #############
   l = log --oneline
-  lg = log --color --graph --pretty=format:'%Cgreen[%cr]%Creset%Cred [%h]%Creset %C(yellow)%d%Creset%s %C(bold blue)<%ae>%Creset' --abbrev-commit       
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 #############
   ls = ls-files
   lsf = "!git ls-files | grep -i"
@@ -174,5 +176,3 @@
   human = name-rev --name-only --refs=refs/heads/*
   serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
   snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}" 
-[push]
-  default = current
