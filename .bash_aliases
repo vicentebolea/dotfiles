@@ -24,9 +24,9 @@ alias tree='tree -C'
 alias myip="lynx -dump checkip.dyndns.org"
 alias se='sudo -e'
 
-alias ua='update-alternatives'
-alias uac='update-alternatives --config'
-
 alias df='df -H'
 alias du='du -ch'
+
+alias ua='update-alternatives'
+alias uac='update-alternatives --config'
 # vim: ft=sh :
