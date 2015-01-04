@@ -3,7 +3,7 @@ shopt -s checkwinsize
 if [ $BASH_VERSINFO -ge 4 ]; then
   shopt -s globstar
   shopt -s autocd
-fi 
+fi
 set -o vi
 stty -ixon                                     # Set forward searching
 
