@@ -74,7 +74,7 @@ autocmd FileType python,Makefile setlocal sw=2 ts=2 noexpandtab
 " }}}
 " Gvim {{{
 if has('gui_running')
-  set guifont=Courier\ 10\ Pitch\ Bold\ 12
+  set guifont=Monaco\ 11
   set linespace=2     " Better line-height
   set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar
