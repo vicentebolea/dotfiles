@@ -7,7 +7,7 @@ fi
 set -o vi
 stty -ixon                                     # Set forward searching
 
-[ -f ~/.exports ] && . ~/.exports              # Order matters
+[ -f ~/.bash_exports ] && . ~/.exports              # Order matters
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
 [ -f ~/.bash_prompt ] && . ~/.bash_prompt
 [ -f ~/.bash_functions ] && . ~/.bash_functions

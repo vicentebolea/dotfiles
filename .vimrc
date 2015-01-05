@@ -137,8 +137,11 @@ let g:airline_theme='powerlineish'
 
 "}}}
 "IndentLine {{{
-let g:indentLine_color_term = 124
-let g:indentLine_char = "'"
+"let g:indentLine_enabled = 0
+let g:indentLine_fileType = ['html','python']
+"let g:indentLine_color_term = 124
+"let g:indentLine_char = "'"
+let g:indentLine_char = '┊'
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:rehash256 = 1
 
