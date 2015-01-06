@@ -6,7 +6,7 @@ case "$TERM" in
 esac
 
 if [[ "$TERM" =~ .*256color ]]; then
-  [ -e "$HOME/.dircolors.256dark" ] && eval `dircolors $HOME/.dircolors.256dark`
+  [ -e "$HOME/.dircolors.256dark" ] && eval `dircolors $HOME/.dircolors.256dark 2> /dev/null`
 fi
 
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help:ll"

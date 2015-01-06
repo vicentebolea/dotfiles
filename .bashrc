@@ -1,3 +1,5 @@
+[ -z "$PS1" ] && return
+
 shopt -s histappend
 shopt -s checkwinsize
 if [ $BASH_VERSINFO -ge 4 ]; then
