@@ -7,14 +7,14 @@ My personal configuration for the Linux terminal with 256 colors.
 
 ###Features:
  - BASH configuration with a cool prompt and a separated file structure to ease distributing your configuratiom accross different machines.
- - VIM configuration and selection of Plugins focussed in C/C++ development. 
+ - VIM configuration and selection of Plugins focussed in C/C++ development.
  - GDB configuration which support C++ standard library data strutures and more fancy things.
  - SCREEN & TMUX configuration to make it more fancy and support 256 colors with vim.
  - GIT configuration with several shortcuts and colors.
  - More..
 
-###Requirements: 
-Virtually every modern Linux system with GIT installed must be enought. 
+###Requirements:
+Virtually every modern Linux system with GIT installed must be enought.
 
 ## Install it
 First, make sure you have git installed, if not run the next command if you are in ubuntu:
@@ -25,7 +25,7 @@ Then, clone the repository and install the dotfiles:
 
     $ git clone --recursive git@github.com:vicentebolea/dotfiles.git .dotfiles
     $ cd .dotfiles
-    $ ./bin/dfm install  
+    $ ./bin/dfm install
 
 Launch the vim editor and then run the second command in the command mode:
 
