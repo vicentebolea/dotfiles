@@ -1,6 +1,5 @@
-[user]
-  name = Vicente Adolfo Bolea Sanchez
-  email = vicente.bolea@gmail.com
+[include]
+  path = ~/.gitconfig.local
 [core] 
   editor = vim 
 [color]
@@ -23,6 +22,7 @@
   tool = vimdiff 
 [merge]
 	tool = vimdiff
+  log = true
 [push]
   default = current
 [alias]
