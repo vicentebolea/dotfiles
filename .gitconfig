@@ -183,7 +183,7 @@
   deploy ="!f() {                                                  \
     branchName=$(git rev-parse --abbrev-ref HEAD 2> /dev/null) &&  \
     git checkout $1 &&                                             \
-    git merge $branchName}                                         \
+    git merge $branchName;                                         \
     }; f" 
 
 [giggle]
