@@ -51,7 +51,6 @@ This will not delete the .bash_independent file.
  - [DFM] [dfm]:                    a.k.a Dot Files Manager, made possible having the dotfiles in a separated directory.
  - [mathiasbynens/dotfiles] [mat]: Some of the ideas are taking from this repository.
 
-
 <!-- Links -->
 [dfm]:     https://github.com/justone/dfm
 [mat]:     https://github.com/mathiasbynens/dotfiles
