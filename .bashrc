@@ -15,7 +15,7 @@ stty -ixon                                     # Set forward searching
 [ -f ~/.bash_functions ] && . ~/.bash_functions
 [ -f ~/.bash_independent ] && . ~/.bash_independent
 
-if ! [ -e ~/.gitconfig.local ]; then
+if [ -z "$(git config --get user.name)" -o -z "$(git config --get user.email)" ]; then
   git config -f ~/.gitconfig.local user.name "$GIT_AUTHOR_NAME"
   git config -f ~/.gitconfig.local user.email "$GIT_AUTHOR_EMAIL"
 fi

@@ -165,5 +165,5 @@ let g:tagbar_width = 30
 "
 "}}}
 "SuperTab | utisnipts {{{
-let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabDefaultCompletionType = "context"
 "}}}
