@@ -185,6 +185,7 @@
     git checkout $1 &&                                             \
     git merge $branchName;                                         \
     }; f" 
+  t = "!bash -c '_git_tags_pretty_printer'"                                                                                                                                                                      
 
 [giggle]
 	main-window-maximized = false
