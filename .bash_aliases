@@ -34,4 +34,8 @@ alias uac='update-alternatives --config'
 #Add git -> g alias and enable complete for it
 alias g='git '
 complete -o default -o nospace -F _git g
+
+_git_t() {
+  __gitcomp "$(git tag -l)";
+}
 # vim: ft=sh :

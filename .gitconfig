@@ -1,6 +1,5 @@
-[user]
-  name = Vicente Adolfo Bolea Sanchez
-  email = vicente.bolea@gmail.com
+[include]
+  path = ~/.gitconfig.local
 [core] 
   editor = vim 
 [color]
@@ -23,6 +22,7 @@
   tool = vimdiff 
 [merge]
 	tool = vimdiff
+  log = true
 [push]
   default = current
 [alias]
@@ -176,7 +176,15 @@
   human = name-rev --name-only --refs=refs/heads/*
   serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
   snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}" 
-#############
+############
+	rebi = "!r() { git rebase -i HEAD~$1; }; r"
+  cu = "!f() { git add -u && git cm \"$1\"; }; f"
+  feature = "!f() { git checkout -b \"$1\" 2> /dev/null; }; f"
+  deploy ="!f() {                                                  \
+    branchName=$(git rev-parse --abbrev-ref HEAD 2> /dev/null) &&  \
+    git checkout $1 &&                                             \
+    git merge $branchName;                                         \
+    }; f" 
 
 [giggle]
 	main-window-maximized = false
