@@ -1,4 +1,6 @@
+bin skip
 README.md skip
 .gitmodules skip
 screenshot.gif skip
 .config recurse
+.bin recurse
