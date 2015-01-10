@@ -85,20 +85,20 @@ endif
 "Autocomplete  {{{
 set dictionary+=/usr/share/dict/words
 set tags=~/.vim/tags/stl.tags
-set tags+=tags
+set tags+=.tags
 
 " OmniCppComplete
 let OmniCpp_NamespaceSearch = 1      
 let OmniCpp_GlobalScopeSearch = 1      
 let OmniCpp_ShowAccess = 1      
-let OmniCpp_MayCompleteDot = 1      
-let OmniCpp_MayCompleteArrow = 1      
-let OmniCpp_MayCompleteScope = 1      
+let OmniCpp_MayCompleteDot = 0
+let OmniCpp_MayCompleteArrow = 0
+let OmniCpp_MayCompleteScope = 0      
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]      
 
 " automatically open and close the popup menu / preview window      
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif      
-set completeopt=menuone,menu,longest,preview
+"au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif      
+set completeopt=menuone,menu,longest
 
 "}}}
 "Key-binding {{{
@@ -165,5 +165,5 @@ let g:tagbar_width = 30
 "
 "}}}
 "SuperTab | utisnipts {{{
-"let g:SuperTabDefaultCompletionType = "context"
+let g:UltiSnipsExpandTrigger="`"                                            
 "}}}
