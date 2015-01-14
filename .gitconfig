@@ -24,7 +24,7 @@
 	tool = vimdiff
   log = true
 [push]
-  default = current
+	default = current
 [alias]
   a = add --all
   ai = add -i
