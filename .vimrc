@@ -106,9 +106,9 @@ set completeopt=menuone,menu,longest
 let mapleader = ","
 let g:mapleader = ","
 
-nmap <F2> :bprevious<Enter>
-nmap <F3> :bnext<Enter>
-nmap <F4> :enew<Enter>
+nmap <F2> :tabprevious<Enter>
+nmap <F3> :tabnext<Enter>
+nmap <F4> :tabnew<Enter>
 nmap <F5> :make <Enter>
 nmap <F6> :set tags+=tags <Enter>
 nmap <F7> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q . <Enter>
@@ -116,6 +116,7 @@ nmap <F9> :NERDTreeToggle<Enter>
 nmap <F8> :TagbarToggle<Enter>
 
 nmap <leader>w :w!<cr>
+nmap <leader>q :q<cr>
 nmap <leader>bd :bdelete<cr>
 nmap <leader>ss :setlocal spell!<cr>
 
@@ -128,9 +129,9 @@ ab Q q
 "}}}
 "vim-airline {{{
 set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#show_buffers = 1
+"let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_left_sep=' '
 let g:airline_right_sep=' '
 let g:airline_theme='powerlineish'
@@ -165,5 +166,11 @@ let g:tagbar_width = 30
 "
 "}}}
 "SuperTab | utisnipts {{{
-let g:UltiSnipsExpandTrigger="`"                                            
+let g:UltiSnipsExpandTrigger="<C-y>"                                            
+"}}}
+" Syntastic "{{{
+" ---------------------------------------------------------------------
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq   = 0
+"
 "}}}
