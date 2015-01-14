@@ -165,5 +165,5 @@ let g:tagbar_width = 30
 "
 "}}}
 "SuperTab | utisnipts {{{
-let g:UltiSnipsExpandTrigger="`"                                            
+let g:UltiSnipsExpandTrigger="<leader>i"                                            
 "}}}
