@@ -6,13 +6,14 @@
 My personal configuration for the Linux terminal with 256 colors.
 
 ###Features:
- - It was designed having in mind to be forked so that you can modified.
+ - It was designed having in mind being forked so that you can freely modify it.
  - As well if you are not going to modify you can just download it.
  - BASH configuration with a cool prompt and a separated file structure to ease distributing your configuratiom accross different machines.
  - VIM configuration and selection of Plugins focussed in C/C++ development.
  - GDB configuration which support C++ standard library data strutures and more fancy things.
- - SCREEN & TMUX configuration to make it more fancy and support 256 colors with vim.
+ - SCREEN & TMUX configuration to make it more fancy and to support 256 colors with vim.
  - GIT configuration with several shortcuts, extra tools and many colors.
+ - Few extras such as fonts and dircolors.
  - More..
 
 ###Requirements:
