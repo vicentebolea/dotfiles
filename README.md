@@ -6,11 +6,13 @@
 My personal configuration for the Linux terminal with 256 colors.
 
 ###Features:
+ - It was designed having in mind to be forked so that you can modified.
+ - As well if you are not going to modify you can just download it.
  - BASH configuration with a cool prompt and a separated file structure to ease distributing your configuratiom accross different machines.
  - VIM configuration and selection of Plugins focussed in C/C++ development.
  - GDB configuration which support C++ standard library data strutures and more fancy things.
  - SCREEN & TMUX configuration to make it more fancy and support 256 colors with vim.
- - GIT configuration with several shortcuts and colors.
+ - GIT configuration with several shortcuts, extra tools and many colors.
  - More..
 
 ###Requirements:
@@ -44,10 +46,11 @@ The file should contain these lines, but change my name and email for yours
     GIT_AUTHOR_EMAIL="vicenolea@gmail.com"
 
 ###How to update it
-Go to dotfiles directory
+It will destroy any change in those files, but not in .bash_independent. Go to dotfiles directory
 
     $ cd ~/.dotfiles
-    $ git pull --rebase
+    $ git fetch --all
+    $ git reset --hard origin/master
 
 This will not delete the .bash_independent file.
 
