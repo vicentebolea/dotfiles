@@ -26,7 +26,7 @@ filetype plugin indent on
 filetype plugin on
 filetype indent on
 syntax on
-" }}} 
+" }}}
 " Interface settings {{{
 "## 256 terminal
 set t_Co=256
@@ -39,8 +39,9 @@ set ruler
 set number
 set incsearch
 set hlsearch
+set wildmenu
 
-"## Cursor 
+"## Cursor
 set cursorline
 match Error /{{{\|}}}/
 " }}}
@@ -88,21 +89,21 @@ set tags=~/.vim/tags/stl.tags
 set tags+=.tags
 
 " OmniCppComplete
-let OmniCpp_NamespaceSearch = 1      
-let OmniCpp_GlobalScopeSearch = 1      
-let OmniCpp_ShowAccess = 1      
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_ShowAccess = 1
 let OmniCpp_MayCompleteDot = 0
 let OmniCpp_MayCompleteArrow = 0
-let OmniCpp_MayCompleteScope = 0      
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]      
+let OmniCpp_MayCompleteScope = 0
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
-" automatically open and close the popup menu / preview window      
-"au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif      
+" automatically open and close the popup menu / preview window
+"au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest
 
 "}}}
 "Key-binding {{{
-" ---------------------------------------------------------------------         
+" ---------------------------------------------------------------------
 let mapleader = ","
 let g:mapleader = ","
 
@@ -119,8 +120,9 @@ nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 nmap <leader>bd :bdelete<cr>
 nmap <leader>ss :setlocal spell!<cr>
+nnoremap <leader><space> :nohlsearch<CR>
 
-"Abbrevations 
+"Abbrevations
 ab W w
 ab Wq wq
 ab wQ wq
@@ -148,7 +150,7 @@ let g:rehash256 = 1
 
 "}}}
 "NERDTree "{{{
-" ---------------------------------------------------------------------         
+" ---------------------------------------------------------------------
 let g:NERDChristmasTree = 1
 let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeShowBookmarks = 1
@@ -166,5 +168,5 @@ let g:tagbar_width = 30
 "
 "}}}
 "SuperTab | utisnipts {{{
-let g:UltiSnipsExpandTrigger="<leader>i"                                            
+let g:UltiSnipsExpandTrigger="<leader>e"
 "}}}
