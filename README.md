@@ -41,7 +41,7 @@ The only configuration needed for vicente's dotfiles should be inside of a file
 called .bash_independent in your home directory. That file will be called from 
 bashrc and will override any other configuration made by default.
 
-The file should contain these lines, but change my name and email for yours
+The file should contain these lines, but change my name and email for yours:
 
     GIT_AUTHOR_NAME="Vicente Adolfo Bolea Sanchez"
     GIT_AUTHOR_EMAIL="vicenolea@gmail.com"
