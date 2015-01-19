@@ -16,3 +16,4 @@ function help_dotfiles
 }
 
 bind '"\C-h":"help_dotfiles\n"'
+bind '"\C-q":"ls -ltrach\n"'
