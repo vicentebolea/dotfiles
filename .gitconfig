@@ -194,3 +194,5 @@
 	history-view-vpane-position = 444
 	file-view-vpane-position = 873
 	main-window-view = HistoryView
+[mergetool]
+	prompt = false
