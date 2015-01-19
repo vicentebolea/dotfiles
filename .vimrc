@@ -170,3 +170,4 @@ let g:tagbar_width = 30
 "SuperTab | utisnipts {{{
 let g:UltiSnipsExpandTrigger="<leader>e"
 "}}}
+" vim foldmethod=marker

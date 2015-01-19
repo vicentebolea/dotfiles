@@ -11,7 +11,7 @@ fi
 
 export PATH="$HOME/.bin:$PATH" 
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help:ll"
-export HISTCONTRO=ignoreboth
+export HISTCONTROL=ignoreboth
 export HISTSIZE=100000
 export HISTFILESIZE=100000
 export EDITOR="vim"

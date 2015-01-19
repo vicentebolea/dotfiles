@@ -28,8 +28,8 @@ alias se='sudo -e'
 alias df='df -H'
 alias du='du -ch'
 
-alias ua='update-alternatives'
-alias uac='update-alternatives --config'
+alias ua='update-alternatives '
+alias uac='update-alternatives --config '
 
 #Add git -> g alias and enable complete for it
 alias g='git '
