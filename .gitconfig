@@ -77,7 +77,8 @@
 #############
   l = log --oneline
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-  lgo = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --remotes=origin
+  lgo = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(bold)%C(magenta)(%an)%Creset' --abbrev-commit --date=relative --remotes=origin
+
 #############
   ls = ls-files
   lsf = "!git ls-files | grep -i"
