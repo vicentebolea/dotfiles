@@ -1,4 +1,4 @@
-# Vicente's dotfiles
+# Vicente's dotfiles [![Build Status](https://travis-ci.org/vicentebolea/dotfiles.svg?branch=master)](https://travis-ci.org/vicentebolea/dotfiles)
 
 ## Overview
 
