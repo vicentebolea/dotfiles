@@ -1,3 +1,5 @@
 #
-language: c
-script: bin/dfm install && source ~/.bashrc
+language: bash
+script: 
+  - bin/dfm install
+  - source ~/.bashrc
