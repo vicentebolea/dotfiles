@@ -2,5 +2,6 @@ bin skip
 README.md skip
 .gitmodules skip
 screenshot.gif skip
+.travis.yml skip
 .config recurse
 .bin recurse

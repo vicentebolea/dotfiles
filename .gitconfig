@@ -63,6 +63,7 @@
   dlc = difftool --cached
   dk = diff --check
   dp = diff --patience
+  ds = diff --stat
   dck = diff --cached --check
 #############
   f = fetch
