@@ -1,9 +1,8 @@
 "
 " AUTHOR: Vicente Adolfo Bolea Sanchez
 "
+" Bundle {{{
 set nocp
-
-"Bundle {{{
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
@@ -49,7 +48,7 @@ match Error /{{{\|}}}/
 "Set backup off since we are always using git :D
 set noswapfile
 set nobackup
-set nowb
+set nowritebackup
 
 "Correct broken redraw
 set ttyfast
@@ -62,7 +61,7 @@ set lazyredraw
 set shiftwidth=2
 set expandtab
 set tabstop=2
-set bs=2
+set backspace=2
 set foldmethod=marker
 
 "uncategorized
@@ -76,7 +75,7 @@ autocmd FileType python,Makefile setlocal sw=2 ts=2 noexpandtab
 " Gvim {{{
 if has('gui_running')
   set guifont=Monaco\ 11
-  set linespace=2     " Better line-height
+  set linespace=2    "Better line-height
   set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar
   set guioptions-=r  "remove right-hand scroll bar
@@ -131,23 +130,17 @@ ab Q q
 "}}}
 "vim-airline {{{
 set laststatus=2
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#show_buffers = 1
-"let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep=' '
 let g:airline_right_sep=' '
 let g:airline_theme='powerlineish'
 
 "}}}
 "IndentLine {{{
-"let g:indentLine_enabled = 0
-let g:indentLine_fileType = ['html','python']
-"let g:indentLine_color_term = 124
-"let g:indentLine_char = "'"
+let g:indentLine_fileType = ['html','python','xml']
 let g:indentLine_char = '┊'
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:rehash256 = 1
-
 "}}}
 "NERDTree "{{{
 " ---------------------------------------------------------------------
