@@ -18,6 +18,8 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'majutsushi/tagbar'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-endwise'
 call vundle#end()
 " }}}
 " Main options {{{
