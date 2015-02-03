@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+require 'colored'
+
+project_name = `git remote -v | head -n1 | awk '{print $2}' | sed -e 's,.*:\\(.*/\\)\\?,,' -e 's/\.git$//'`.chomp
+branch_name = `git rev-parse --abbrev-ref HEAD 2> /dev/null`.chomp
+release_name = `git describe --tags  $(git merge-base HEAD master)`.chomp
+
+puts <<EOF
+Overall        + Project : #{project_name.green}
+               + Branch  : #{branch_name.red}
+               + Release : #{release_name.yellow}
+Last #{"5".red} commits
+--------------
++ #{sprintf("%.50s", `git log --format=%B -n 1 HEAD`.gsub("\n","")).red }
++ #{sprintf("%.50s", `git log --format=%B -n 1 HEAD^`.gsub("\n","")).red }
++ #{sprintf("%.50s", `git log --format=%B -n 1 HEAD^^`.gsub("\n","")).red }
++ #{sprintf("%.50s", `git log --format=%B -n 1 HEAD^^^`.gsub("\n","")).red }
++ #{sprintf("%.50s", `git log --format=%B -n 1 HEAD^^^^`.gsub("\n","")).red }
+EOF
