@@ -1,19 +1,36 @@
 #!/usr/bin/env ruby
-require 'colored'
 
+#----
+begin 
+  terminfo_installed = true
+  Gem::Specification.find_by_name ('colored')
+  require 'colored'
+  Gem::Specification.find_by_name ('ruby-terminfo')
+  require 'terminfo'
+
+rescue Gem::LoadError => e
+  terminfo_installed = false if e.message =~ /ruby-terminfo/
+  if e.message =~ /colored/
+    puts "Error: colored gem not found, maybe 'sudo gem install colored'" 
+    exit 
+  end
+end
+
+#----
 project_name = `git remote -v | head -n1 | awk '{print $2}' | sed -e 's,.*:\\(.*/\\)\\?,,' -e 's/\.git$//'`.chomp
-branch_name = `git rev-parse --abbrev-ref HEAD 2> /dev/null`.chomp
+branch_name  = `git rev-parse --abbrev-ref HEAD 2> /dev/null`.chomp
 release_name = `git describe --tags  $(git merge-base HEAD master) 2> /dev/null || echo "No release"`.chomp
 
-puts <<EOF
+output = <<EOF
 Overall        + Project : #{project_name.green}
                + Branch  : #{branch_name.red}
                + Release : #{release_name.yellow}
 Last #{"5".red} commits
 --------------
-+ #{sprintf("%.50s", `git log --format=%B -n 1 HEAD`.gsub("\n","")).red }
-+ #{sprintf("%.50s", `git log --format=%B -n 1 HEAD^`.gsub("\n","")).red }
-+ #{sprintf("%.50s", `git log --format=%B -n 1 HEAD^^`.gsub("\n","")).red }
-+ #{sprintf("%.50s", `git log --format=%B -n 1 HEAD^^^`.gsub("\n","")).red }
-+ #{sprintf("%.50s", `git log --format=%B -n 1 HEAD^^^^`.gsub("\n","")).red }
 EOF
+
+termw        = terminfo_installed ? (TermInfo.screen_size[1] - 5) : 50
+logs         = Hash.new
+0.upto(4) { |i| logs[i] = "#{"+".green} %.#{termw}s\n" % `git log --format=%B -n 1 HEAD#{"^"*i}`.gsub("\n","").red }
+logs.each { |k,v| output += v}
+print output
