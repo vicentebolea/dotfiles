@@ -18,6 +18,11 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'majutsushi/tagbar'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-endwise'
+Plugin 'ecomba/vim-ruby-refactoring'
+Plugin 'ruby-matchit'
+Plugin 'matchit.zip'
 call vundle#end()
 " }}}
 " Main options {{{
