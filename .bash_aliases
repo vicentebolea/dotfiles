@@ -24,6 +24,7 @@ alias myip="lynx -dump checkip.dyndns.org"
 complete -F _root_command s
 alias s='sudo '
 alias se='sudo -e'
+alias si='sudo -i'
 
 alias df='df -H'
 alias du='du -ch'
