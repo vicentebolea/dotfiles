@@ -8,6 +8,9 @@ begin
   Gem::Specification.find_by_name ('ruby-terminfo')
   require 'terminfo'
 
+  `git rev-parse --is-inside-work-tree &>/dev/null`
+  raise 'Not a git working tree' unless $?.to_i == 0
+
 rescue Gem::LoadError => e
   terminfo_installed = false if e.message =~ /ruby-terminfo/
   if e.message =~ /colored/
@@ -23,7 +26,7 @@ release_name = `git describe --tags  $(git merge-base HEAD master) 2> /dev/null 
 
 output = <<EOF
 Overall        + Project : #{project_name.green}
-               + Branch  : #{branch_name.red}
+               + Feature : #{branch_name.red}
                + Release : #{release_name.yellow}
 Last #{"5".red} commits
 --------------

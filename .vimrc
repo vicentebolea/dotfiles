@@ -1,4 +1,4 @@
-"
+" vim : foldmethod=marker :
 " AUTHOR: Vicente Adolfo Bolea Sanchez
 "
 " Bundle {{{
@@ -37,6 +37,7 @@ set t_Co=256
 let g:solarized_termcolors=256
 set background=dark
 colorscheme badwolf
+set term=xterm-256color
 
 "## More options
 set ruler
@@ -119,19 +120,26 @@ nmap <F6> :set tags+=tags <Enter>
 nmap <F7> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q . <Enter>
 nmap <F9> :NERDTreeToggle<Enter>
 nmap <F8> :TagbarToggle<Enter>
-
 nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 nmap <leader>bd :bdelete<cr>
 nmap <leader>ss :setlocal spell!<cr>
 nnoremap <leader><space> :nohlsearch<CR>
 
-"Abbrevations
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif 
+
 ab W w
 ab Wq wq
 ab wQ wq
 ab WQ wq
 ab Q q
+ab WQA wqa
+ab Wqa wqa
 "}}}
 "vim-airline {{{
 set laststatus=2
@@ -168,4 +176,3 @@ let g:tagbar_width = 30
 "SuperTab | utisnipts {{{
 let g:UltiSnipsExpandTrigger="<leader>e"
 "}}}
-" vim foldmethod=marker
