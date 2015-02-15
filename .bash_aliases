@@ -25,6 +25,8 @@ complete -F _root_command s
 alias s='sudo '
 alias se='sudo -e'
 alias si='sudo -i'
+alias s-='sudo su -'
+alias s-s='sudo -s'
 
 alias df='df -H'
 alias du='du -ch'
