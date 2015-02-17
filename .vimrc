@@ -143,7 +143,7 @@ ab Wqa wqa
 "}}}
 "vim-airline {{{
 set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep=' '
 let g:airline_right_sep=' '
 let g:airline_theme='powerlineish'
@@ -176,3 +176,9 @@ let g:tagbar_width = 30
 "SuperTab | utisnipts {{{
 let g:UltiSnipsExpandTrigger="<leader>e"
 "}}}
+"Syntastic {{{
+let g:syntastic_java_javac_config_file_enabled=1
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+"nnoremap <Leader>t :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+nnoremap <Leader>t :SyntasticCheck<CR>
+" }}}
