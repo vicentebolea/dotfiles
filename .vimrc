@@ -182,3 +182,10 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_
 "nnoremap <Leader>t :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 nnoremap <Leader>t :SyntasticCheck<CR>
 " }}}
+function! RubyMethodFold(line)
+  let line_is_method_or_end = synIDattr(synID(a:line,1,0), 'name') == 'rubyMethodBlock'
+  let line_is_def = getline(a:line) =~ '\s*def '
+  return line_is_method_or_end || line_is_def
+endfunction
+
+set foldexpr=RubyMethodFold(v:lnum)

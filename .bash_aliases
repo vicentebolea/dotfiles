@@ -38,10 +38,10 @@ alias uac='update-alternatives --config '
 alias g='git '
 complete -o default -o nospace -F _git g
 
-_git_t() {
+function _git_t {
   __gitcomp "$(git tag -l)";
 }
-ip-local() {
+function ip-local {
   ip addr | grep -Po '(?!(inet 127.\d.\d.1))(inet \K(\d{1,3}\.){3}\d{1,3})'
 }
 # vim: ft=sh :

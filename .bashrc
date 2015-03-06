@@ -1,21 +1,20 @@
 [ -z "$PS1" ] && return
 
-shopt -s histappend
-shopt -s checkwinsize
+shopt -s histappend                            # Add history from all the terminal opened
+shopt -s checkwinsize                          # Keep checking terminal size
 if [ $BASH_VERSINFO -ge 4 ]; then
-  shopt -s globstar
-  shopt -s autocd
+  shopt -s globstar                            # ** enabled
+  shopt -s autocd                              # Type the directory name and cd it
 fi
-set -o vi
+set -o vi                                      # VI mode readline
 stty -ixon                                     # Set forward searching
 
-[ -f ~/.bash_exports ]     && . ~/.bash_exports              # Order matters
-[ -f ~/.bash_aliases ]     && . ~/.bash_aliases
-[ -f ~/.bash_prompt ]      && . ~/.bash_prompt
-[ -f ~/.bash_functions ]   && . ~/.bash_functions
-[ -f ~/.bash_independent ] && . ~/.bash_independent*
+# File loading (Order matters) :ARCANE:
+while read -d ' ' file; do
+  [ -f ~/.bash_${file} ] && . ~/.bash_${file}
+done <<< "exports aliases prompt functions independent"
 
-if [ -z "$(git config --get user.name)" -o -z "$(git config --get user.email)" ]; then
+if [[ -z "$(git config --get user.name)" || -z "$(git config --get user.email)" ]]; then
   git config -f ~/.gitconfig.local user.name "$GIT_AUTHOR_NAME"
   git config -f ~/.gitconfig.local user.email "$GIT_AUTHOR_EMAIL"
 fi
