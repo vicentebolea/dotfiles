@@ -10,16 +10,11 @@ set -o vi                                      # VI mode readline
 stty -ixon                                     # Set forward searching
 
 # File loading (Order matters) :ARCANE:
-while read file; do
+for file in `cat <&10`; do
   [ -f ~/.bash_${file} ] && . ~/.bash_${file}
-done << EOF
-exports
-aliases
-prompt
-functions
-independent
-EOF
+done 10<<< "exports aliases prompt functions independent"
 
+# Git configuration
 if [[ -z "$(git config --get user.name)" || -z "$(git config --get user.email)" ]]; then
   git config -f ~/.gitconfig.local user.name "$GIT_AUTHOR_NAME"
   git config -f ~/.gitconfig.local user.email "$GIT_AUTHOR_EMAIL"
