@@ -6,4 +6,4 @@ defbce on    # use current bg color for erased chars
 hardstatus  alwayslastline '%{= kK}%{w}%H %{K}%= %{= kw}%?%-Lw%?%{B}(%{W}%n*%f %t%?(%u)%?%{B})%{w}%?%+Lw%?%?%= %{K}%{B} %{w}%c%{K}'
 #hardstatus alwayslastline "%{=b dy}%D, %d. %M '%y %{=b dw}%c:%s %{=b dy}{ %{= dg}${USER}@%{= dr}%H %{=b dy}} %{=b d2}%l %{=b dy}%u %{=b dy} %={ %?%{= dc}%-Lw%?%{+b dy}(%{-b r}%n:%t%{+b dy})%?(%u)%?%{-dc}%?%{= dc}%+Lw%? %{=b dy}}""'"
 sorendition "kg"
-
+defscrollback 10000 

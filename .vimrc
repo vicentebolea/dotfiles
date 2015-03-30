@@ -23,6 +23,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'ruby-matchit'
 Plugin 'matchit.zip'
+Plugin 'bruno-/vim-ruby-fold'
 call vundle#end()
 " }}}
 " Main options {{{
@@ -151,7 +152,7 @@ let g:airline_theme='powerlineish'
 "}}}
 "IndentLine {{{
 let g:indentLine_fileType = ['html','python','xml']
-let g:indentLine_char = '┊'
+let g:indentLine_char = "'"
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:rehash256 = 1
 "}}}
@@ -182,10 +183,3 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_
 "nnoremap <Leader>t :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 nnoremap <Leader>t :SyntasticCheck<CR>
 " }}}
-function! RubyMethodFold(line)
-  let line_is_method_or_end = synIDattr(synID(a:line,1,0), 'name') == 'rubyMethodBlock'
-  let line_is_def = getline(a:line) =~ '\s*def '
-  return line_is_method_or_end || line_is_def
-endfunction
-
-set foldexpr=RubyMethodFold(v:lnum)

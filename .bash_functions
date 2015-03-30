@@ -26,7 +26,7 @@ function pretty-path {
 }
 
 bind '"\C-h":"help_dotfiles\n"'
-bind '"\C-q":"ls -ltrach\n"'
+bind '"\C-q":"ls \n"'
 bind '"\C-t":"pretty-path\n"'
 
 # Script to get all the PPA installed on a system
