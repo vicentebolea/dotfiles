@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
-
+# BRIEF:  A simple script which shows you important information 
+#         of the current status of the git project.
+# 
+# AUTHOR: Vicente Adolfo Bolea Sanchez
+# EMAIL:  vicente.bolea@gmail.com
 #----
 begin 
   terminfo_installed = true
@@ -33,11 +37,11 @@ Last #{"5".red} commits
 EOF
 
 termw        = terminfo_installed ? (TermInfo.screen_size[1] - 5) : 50
-logs         = Hash.new
+logs         = Array.new
 
 0.upto(4) do |i|
-  logs[i] = "#{"+".green} %.#{termw}s\n" % `git log --format=%B -n 1 HEAD#{"^"*i}`.gsub("\n","").red
+  logs << "#{"+".green} %.#{termw}s\n" % `git log --format=%B -n 1 HEAD#{"^"*i}`.gsub("\n","").red
 end
 
-logs.each { |_,v| output += v}
+logs.each { |v| output += v}
 print output
