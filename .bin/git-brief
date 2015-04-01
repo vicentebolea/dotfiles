@@ -13,7 +13,7 @@ begin
   require 'terminfo'
 
   `git rev-parse --is-inside-work-tree &>/dev/null`
-  raise 'Not a git working tree' unless $?.to_i == 0
+  fail 'Not a git working tree' unless $?.to_i == 0
 
 rescue Gem::LoadError => e
   terminfo_installed = false if e.message =~ /ruby-terminfo/
@@ -21,6 +21,7 @@ rescue Gem::LoadError => e
     $stderr.puts "Error: colored gem not found, maybe 'sudo gem install colored'" 
     exit 
   end
+  exit
 end
 
 #----
