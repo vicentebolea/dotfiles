@@ -111,21 +111,24 @@ set completeopt=menuone,menu,longest
 "Key-binding {{{
 " ---------------------------------------------------------------------
 let mapleader = ","
-let g:mapleader = ","
 
-nmap <F2> :tabprevious<Enter>
-nmap <F3> :tabnext<Enter>
-nmap <F4> :tabnew<Enter>
-nmap <F5> :make <Enter>
-nmap <F6> :set tags+=tags <Enter>
-nmap <F7> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q . <Enter>
-nmap <F9> :NERDTreeToggle<Enter>
-nmap <F8> :TagbarToggle<Enter>
-nmap <leader>w :w!<cr>
-nmap <leader>q :q<cr>
-nmap <leader>bd :bdelete<cr>
-nmap <leader>ss :setlocal spell!<cr>
+nnoremap <silent> <F2> :tabprevious<Enter>
+nnoremap <silent> <F3> :tabnext<Enter>
+nnoremap <silent> <F4> :tabnew<Enter>
+nnoremap <F5> :make <Enter>
+nnoremap <F6> :set tags+=tags <Enter>
+nnoremap <F7> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q . <Enter>
+nnoremap <silent> <F9> :NERDTreeToggle<Enter>
+nnoremap <silent> <F8> :TagbarToggle<Enter>
+nnoremap <leader>w :w!<cr>
+nnoremap <leader>q :q<cr>
+nnoremap <leader>bd :bdelete<cr>
+nnoremap <leader>ss :setlocal spell!<cr>
+nnoremap <Leader>t :SyntasticCheck<CR>
 nnoremap <leader><space> :nohlsearch<CR>
+
+"Great map which saves the file in sudo mode, something like `sudo !!`
+cnoremap w!! w !sudo tee >/dev/null % 
 
 if exists(":Tabularize")
   nmap <Leader>a= :Tabularize /=<CR>
@@ -181,5 +184,4 @@ let g:UltiSnipsExpandTrigger="<leader>e"
 let g:syntastic_java_javac_config_file_enabled=1
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 "nnoremap <Leader>t :SyntasticCheck<CR> :SyntasticToggleMode<CR>
-nnoremap <Leader>t :SyntasticCheck<CR>
 " }}}
