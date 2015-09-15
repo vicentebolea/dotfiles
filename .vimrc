@@ -38,7 +38,7 @@ set t_Co=256
 let g:solarized_termcolors=256
 set background=dark
 colorscheme badwolf
-set term=xterm-256color
+set term=screen-256color
 
 "## More options
 set ruler
