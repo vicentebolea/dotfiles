@@ -46,6 +46,15 @@ The file should contain these lines, but change my name and email for yours:
     GIT_AUTHOR_NAME="Vicente Adolfo Bolea Sanchez"
     GIT_AUTHOR_EMAIL="vicenolea@gmail.com"
 
+Also, in order to enable C++ autocomplete features you must install libclang-dev,
+in ubuntu it would be:
+  
+    $ sudo apt-get install libclang-dev
+
+After that you must indicate the location of the library in the .bash_independent file
+  
+    export CLANG_COMPLETE_LIB="/usr/lib/path_to_libclang.so..."
+
 ###How to update it
 It will destroy any change in those files, but not in .bash_independent. Go to dotfiles directory
 

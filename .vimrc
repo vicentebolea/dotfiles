@@ -20,10 +20,10 @@ Plugin 'honza/vim-snippets'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-endwise'
-Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'ruby-matchit'
 Plugin 'matchit.zip'
 Plugin 'bruno-/vim-ruby-fold'
+Plugin 'Rip-Rip/clang_complete'
 call vundle#end()
 " }}}
 " Main options {{{
@@ -74,6 +74,7 @@ set foldmethod=marker
 "uncategorized
 set exrc
 set wildignore=*.o,*.class,*.pyc
+set mouse=a
 
 "Deal with html
 autocmd FileType html setlocal sw=2 ts=2 et smartindent
@@ -91,22 +92,15 @@ endif
 " }}}
 "Autocomplete  {{{
 set dictionary+=/usr/share/dict/words
-set tags=~/.vim/tags/stl.tags
 set tags+=.tags
-
-" OmniCppComplete
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_MayCompleteDot = 0
-let OmniCpp_MayCompleteArrow = 0
-let OmniCpp_MayCompleteScope = 0
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-
-" automatically open and close the popup menu / preview window
-"au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest
 
+" clang_complete
+" ----------------------------------------------------
+let g:clang_library_path = $CLANG_COMPLETE_LIB
+let g:clang_complete_auto = 0
+let g:clang_snippets = 1
+let g:clang_snippets_engine = 'ultisnips'
 "}}}
 "Key-binding {{{
 " ---------------------------------------------------------------------
@@ -124,8 +118,8 @@ nnoremap <leader>w :w!<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>bd :bdelete<cr>
 nnoremap <leader>ss :setlocal spell!<cr>
-nnoremap <Leader>t :SyntasticCheck<CR>
 nnoremap <leader><space> :nohlsearch<CR>
+nnoremap Q <Nop>
 
 "Great map which saves the file in sudo mode, something like `sudo !!`
 cnoremap w!! w !sudo tee >/dev/null % 
@@ -169,7 +163,6 @@ let g:NERDTreeDirArrows = 0
 " Easy Motion "{{{
 " ---------------------------------------------------------------------
 let g:EasyMotion_leader_key = '<Leader>'
-"
 "}}}
 " Tagbar "{{{
 " ---------------------------------------------------------------------
@@ -178,10 +171,24 @@ let g:tagbar_width = 30
 "
 "}}}
 "SuperTab | utisnipts {{{
-let g:UltiSnipsExpandTrigger="<leader>e"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 "}}}
 "Syntastic {{{
+noremap <Leader>t :SyntasticCheck<CR>
+nnoremap <Leader>T :SyntasticToggleMode<CR>
+
+"Java options
 let g:syntastic_java_javac_config_file_enabled=1
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 "nnoremap <Leader>t :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+
+"C++ options
+let g:syntastic_cpp_compiler = 'g++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 '
+" }}}
+" Signature {{{
+let g:snips_author = $GIT_AUTHOR_NAME
 " }}}
