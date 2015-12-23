@@ -70,6 +70,7 @@ set expandtab
 set tabstop=2
 set backspace=2
 set foldmethod=marker
+set cino=N-s
 
 "uncategorized
 set exrc
@@ -97,9 +98,9 @@ set completeopt=menuone,menu,longest
 
 " clang_complete
 " ----------------------------------------------------
-let g:clang_library_path = $CLANG_COMPLETE_LIB
-let g:clang_complete_auto = 0
-let g:clang_snippets = 1
+let g:clang_library_path    = $CLANG_COMPLETE_LIB
+let g:clang_complete_auto   = 0
+let g:clang_snippets        = 1
 let g:clang_snippets_engine = 'ultisnips'
 "}}}
 "Key-binding {{{
@@ -110,8 +111,6 @@ nnoremap <silent> <F2> :tabprevious<Enter>
 nnoremap <silent> <F3> :tabnext<Enter>
 nnoremap <silent> <F4> :tabnew<Enter>
 nnoremap <F5> :make <Enter>
-nnoremap <F6> :set tags+=tags <Enter>
-nnoremap <F7> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q . <Enter>
 nnoremap <silent> <F9> :NERDTreeToggle<Enter>
 nnoremap <silent> <F8> :TagbarToggle<Enter>
 nnoremap <leader>w :w!<cr>
@@ -171,9 +170,9 @@ let g:tagbar_width = 30
 "
 "}}}
 "SuperTab | utisnipts {{{
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+let g:UltiSnipsExpandTrigger        = "<c-j>"
+let g:UltiSnipsJumpForwardTrigger   = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 "}}}
 "Syntastic {{{
@@ -192,3 +191,10 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 '
 " Signature {{{
 let g:snips_author = $GIT_AUTHOR_NAME
 " }}}
+"
+" lets try
+"
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
