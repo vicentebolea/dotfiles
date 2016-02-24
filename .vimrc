@@ -38,7 +38,7 @@ syntax on
 set t_Co=256
 let g:solarized_termcolors=256
 set background=dark
-colorscheme badwolf
+colorscheme badwolf 
 set term=screen-256color
 
 "## More options
@@ -120,6 +120,8 @@ nnoremap <leader>bd :bdelete<cr>
 nnoremap <leader>ss :setlocal spell!<cr>
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap Q <Nop>
+nnoremap <space>s :Gstatus<CR>
+nnoremap <space>d :Gdiff<CR>
 
 "Great map which saves the file in sudo mode, something like `sudo !!`
 cnoremap w!! w !sudo tee >/dev/null % 
@@ -191,6 +193,9 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 '
 " }}}
 " Signature {{{
 let g:snips_author = $GIT_AUTHOR_NAME
+" }}}
+" Fugitive {{{
+set diffopt+=vertical
 " }}}
 "
 " lets try
