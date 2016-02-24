@@ -8,6 +8,7 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdtree'
 Plugin 'godlygeek/tabular'
@@ -42,7 +43,7 @@ set term=screen-256color
 
 "## More options
 set ruler
-set number
+"set number
 set incsearch
 set hlsearch
 set wildmenu
