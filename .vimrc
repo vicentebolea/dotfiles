@@ -6,25 +6,23 @@ set nocp
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdtree'
 Plugin 'godlygeek/tabular'
 Plugin 'SuperTab'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
+Plugin 'gregsexton/gitv'
 Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-endwise'
-Plugin 'ruby-matchit'
-Plugin 'matchit.zip'
-Plugin 'bruno-/vim-ruby-fold'
 Plugin 'Rip-Rip/clang_complete'
+Plugin 'ctrlp.vim'
 call vundle#end()
 " }}}
 " Main options {{{
@@ -120,8 +118,12 @@ nnoremap <leader>bd :bdelete<cr>
 nnoremap <leader>ss :setlocal spell!<cr>
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap Q <Nop>
-nnoremap <space>s :Gstatus<CR>
-nnoremap <space>d :Gdiff<CR>
+
+nnoremap <silent> <space>s :Gstatus<CR>
+nnoremap <silent> <space>S :bd .git/index<CR>
+nnoremap <silent> <space>d :Gdiff<CR>
+nnoremap <silent> <space>a :copen<CR>
+nnoremap <silent> <space>A :cclose<CR>
 
 "Great map which saves the file in sudo mode, something like `sudo !!`
 cnoremap w!! w !sudo tee >/dev/null % 

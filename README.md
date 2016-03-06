@@ -26,14 +26,7 @@ First, make sure you have git installed, if not run the next command if you are 
 
 Then, clone the repository and install the dotfiles:
 
-    $ git clone --recursive git@github.com:vicentebolea/dotfiles.git .dotfiles
-    $ cd .dotfiles
-    $ ./bin/dfm install
-
-Launch the vim editor and then run the second command in the command mode:
-
-    $ vim
-    $ :PluginInstall
+    $ git clone --recursive git@github.com:vicentebolea/dotfiles.git .dotfiles && cd .dotfiles && ./bin/dfm install && vim -c 'PluginUpdate'
 
 ###Personal costumization
 
@@ -58,9 +51,7 @@ After that you must indicate the location of the library in the .bash_independen
 ###How to update it
 It will destroy any change in those files, but not in .bash_independent. Go to dotfiles directory
 
-    $ cd ~/.dotfiles
-    $ git fetch --all
-    $ git reset --hard origin/master
+    $ cd ~/.dotfiles && git fetch --all && git reset --hard origin/master
 
 This will not delete the .bash_independent file.
 
