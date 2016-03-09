@@ -15,6 +15,7 @@ Plugin 'SuperTab'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'gregsexton/gitv'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -98,6 +99,7 @@ set completeopt=menuone,menu,longest
 " clang_complete
 " ----------------------------------------------------
 let g:clang_library_path    = $CLANG_COMPLETE_LIB
+let g:clang_auto_select     = 1
 let g:clang_complete_auto   = 0
 let g:clang_snippets        = 1
 let g:clang_snippets_engine = 'ultisnips'
@@ -124,6 +126,7 @@ nnoremap <silent> <space>S :bd .git/index<CR>
 nnoremap <silent> <space>d :Gdiff<CR>
 nnoremap <silent> <space>a :copen<CR>
 nnoremap <silent> <space>A :cclose<CR>
+nnoremap <silent> <space>g :GitGutterToggle<CR>
 
 "Great map which saves the file in sudo mode, something like `sudo !!`
 cnoremap w!! w !sudo tee >/dev/null % 
@@ -178,7 +181,7 @@ let g:tagbar_width = 30
 let g:UltiSnipsExpandTrigger        = "<c-j>"
 let g:UltiSnipsJumpForwardTrigger   = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 "}}}
 "Syntastic {{{
 noremap <Leader>t :SyntasticCheck<CR>
@@ -198,8 +201,11 @@ let g:snips_author = $GIT_AUTHOR_NAME
 " }}}
 " Fugitive {{{
 set diffopt+=vertical
+set updatetime=250
+let g:gitgutter_realtime = 1
+let g:gitgutter_eager = 1
+let g:gitgutter_enabled = 0
 " }}}
-"
 " lets try
 "
 noremap   <Up>     <NOP>
