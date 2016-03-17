@@ -108,35 +108,36 @@ let g:clang_snippets_engine = 'ultisnips'
 " ---------------------------------------------------------------------
 let mapleader = ","
 
+noremap  <Up>     <NOP>
+noremap  <Down>   <NOP>
+noremap  <Left>   <NOP>
+noremap  <Right>  <NOP>
+nnoremap Q <Nop>
+
+" Tabs
 nnoremap <silent> <F2> :tabprevious<Enter>
 nnoremap <silent> <F3> :tabnext<Enter>
 nnoremap <silent> <F4> :tabnew<Enter>
 nnoremap <F5> :make <Enter>
 nnoremap <silent> <F9> :NERDTreeToggle<Enter>
 nnoremap <silent> <F8> :TagbarToggle<Enter>
-nnoremap <leader>w :w!<cr>
-nnoremap <leader>q :q<cr>
-nnoremap <leader>bd :bdelete<cr>
-nnoremap <leader>ss :setlocal spell!<cr>
-nnoremap <leader><space> :nohlsearch<CR>
-nnoremap Q <Nop>
 
+"Customized shortcuts
+nnoremap <silent> <space>w :w!<cr>
+nnoremap <silent> <space>q :q<cr>
 nnoremap <silent> <space>s :Gstatus<CR>
 nnoremap <silent> <space>S :bd .git/index<CR>
 nnoremap <silent> <space>d :Gdiff<CR>
 nnoremap <silent> <space>a :copen<CR>
 nnoremap <silent> <space>A :cclose<CR>
 nnoremap <silent> <space>g :GitGutterToggle<CR>
+nnoremap <silent> <space>t :SyntasticCheck<CR>
+nnoremap <silent> <space>T :SyntasticReset<CR>
+nnoremap <silent> <space>r :SyntasticToggleMode<CR>
+nnoremap <silent> <space>/ :nohlsearch<CR>
 
 "Great map which saves the file in sudo mode, something like `sudo !!`
 cnoremap w!! w !sudo tee >/dev/null % 
-
-if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
-endif 
 
 ab W w
 ab Wq wq
@@ -184,8 +185,6 @@ let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
 let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 "}}}
 "Syntastic {{{
-noremap <Leader>t :SyntasticCheck<CR>
-nnoremap <Leader>T :SyntasticToggleMode<CR>
 
 "Java options
 let g:syntastic_java_javac_config_file_enabled=1
@@ -194,7 +193,9 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_
 
 "C++ options
 let g:syntastic_cpp_compiler = 'g++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 '
+let g:syntastic_cpp_compiler_options = '-std=c++14'
+let g:syntastic_cpp_cpplint_exec = 'cpplint'
+let g:syntastic_cpp_checkers = ['g++', 'cpplint']
 " }}}
 " Signature {{{
 let g:snips_author = $GIT_AUTHOR_NAME
@@ -206,9 +207,3 @@ let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 let g:gitgutter_enabled = 0
 " }}}
-" lets try
-"
-noremap   <Up>     <NOP>
-noremap   <Down>   <NOP>
-noremap   <Left>   <NOP>
-noremap   <Right>  <NOP>
