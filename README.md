@@ -26,7 +26,7 @@ First, make sure you have git installed, if not run the next command if you are 
 
 Then, clone the repository and install the dotfiles:
 
-    $ git clone --recursive git@github.com:vicentebolea/dotfiles.git .dotfiles && cd .dotfiles && ./bin/dfm install && vim -c 'PluginUpdate'
+    $ git clone --recursive https://github.com/vicentebolea/dotfiles.git .dotfiles && cd .dotfiles && ./bin/dfm install && vim -c 'PluginUpdate'
 
 ###Personal costumization
 
