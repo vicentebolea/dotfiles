@@ -1,5 +1,5 @@
 PS1(">> ")
 edit mode sync
 edit home .
-edit editor 'vim > /dev/tty 2>&1 < /dev/tty %s'
+EDITOR("vim")
 clc;
