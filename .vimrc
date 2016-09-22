@@ -24,6 +24,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-endwise'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'ctrlp.vim'
+Plugin 'rodjek/vim-puppet'
 call vundle#end()
 " }}}
 " Main options {{{
@@ -115,12 +116,12 @@ noremap  <Right>  <NOP>
 nnoremap Q <Nop>
 
 " Tabs
-nnoremap <silent> <F2> :tabprevious<Enter>
-nnoremap <silent> <F3> :tabnext<Enter>
-nnoremap <silent> <F4> :tabnew<Enter>
-nnoremap <F5> :make <Enter>
-nnoremap <silent> <F9> :NERDTreeToggle<Enter>
-nnoremap <silent> <F8> :TagbarToggle<Enter>
+map <silent> <F2> :tabprevious<Enter>
+map <silent> <F3> :tabnext<Enter>
+map <silent> <F4> :tabnew<Enter>
+map <F5> :make <Enter>
+map <silent> <F9> :NERDTreeToggle<Enter>
+map <silent> <F8> :TagbarToggle<Enter>
 
 "Customized shortcuts
 nnoremap <silent> <space>w :w!<cr>
@@ -135,6 +136,7 @@ nnoremap <silent> <space>t :SyntasticCheck<CR>
 nnoremap <silent> <space>T :SyntasticReset<CR>
 nnoremap <silent> <space>r :SyntasticToggleMode<CR>
 nnoremap <silent> <space>/ :nohlsearch<CR>
+nnoremap <silent> <space>u :ClearCtrlPCache<CR>
 
 "Great map which saves the file in sudo mode, something like `sudo !!`
 cnoremap w!! w !sudo tee >/dev/null % 

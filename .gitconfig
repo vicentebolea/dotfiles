@@ -76,10 +76,10 @@
 #############
   g = grep -p
 #############
-  l = log --oneline
+  l = log --oneline --first-parent --abbrev-commit
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   lgo = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(bold)%C(magenta)(%an)%Creset' --abbrev-commit --date=relative --remotes=origin
-
+  lm =  log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --merges --first-parent
 #############
   ls = ls-files
   lsf = "!git ls-files | grep -i"
@@ -147,7 +147,7 @@
   rpo = remote prune origin
   rpu = remote prune upstream
 #############
-  ss = status --untracked-files=no
+  ss = status --untracked-files=no -s -b
   sb = status -s -b
 #############
   sa = stash apply
@@ -197,3 +197,5 @@
   t = "!bash -c '_git_tags_pretty_printer'"
 [mergetool]
 	prompt = false
+[rerere]
+	enabled = true

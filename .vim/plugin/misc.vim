@@ -7,15 +7,15 @@ endfunc
 
 
 func! MethodDefinition()
-  let pattern  =  '^\s*\(\w\+\)\s\+\(\w\+\)\s*(\([^)]*\)).*;$'
-  let output   =  matchlist(getline('.'), pattern)
-  let file_to_mod = expand("%")
+  let pattern      = '^\s*\(\w\+\)\s\+\(\w\+\)\s*(\([^)]*\)).*;$'
+  let output       = matchlist(getline('.'), pattern)
+  let file_to_mod  = expand("%")
   let file_to_read = expand("%:r") . ".hh"
 
   execute ":w"
   execute ":buffer " . file_to_read
-  let [lnum, col] = searchpos('^class\s\?\w*', 'n') 
-  let class_name =  matchlist(getline(lnum), '^class\s\(\w*\)')[1]
+  let [lnum, col] = searchpos('^class\s\?\w*', 'n')
+  let class_name  = matchlist(getline(lnum), '^class\s\(\w*\)')[1]
   execute ":buffer " . file_to_mod
 
   if len(output) < 3
@@ -35,3 +35,13 @@ func! MethodDefinition()
 endfunc
 
 nnoremap <Leader>c :call MethodDefinition()<Enter>
+
+function! ToggleHomeZero()
+  let pos = getpos('.')
+  execute "normal! ^"
+  if pos == getpos('.')
+    execute "normal! 0"
+  endif
+endfunction
+
+nnoremap <silent> 0 :call ToggleHomeZero()<CR>
