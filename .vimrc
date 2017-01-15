@@ -1,6 +1,9 @@
 " vim : foldmethod=marker :
 " AUTHOR: Vicente Adolfo Bolea Sanchez
-"
+" Dependencies:
+"  - It requires to have the following env variables:
+"    1. $CLANG_COMPLETE_LIB
+"    2. $GIT_AUTHOR_NAME
 " Bundle {{{
 set nocp
 filetype off
@@ -32,6 +35,12 @@ filetype plugin indent on
 filetype plugin on
 filetype indent on
 syntax on
+
+" This is VIM we don't need arrow keys
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
 " }}}
 " Interface settings {{{
 "## 256 terminal
@@ -151,7 +160,6 @@ ab Wqa wqa
 "}}}
 "vim-airline {{{
 set laststatus=2
-"let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep=' '
 let g:airline_right_sep=' '
 let g:airline_theme='powerlineish'
