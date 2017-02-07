@@ -192,7 +192,7 @@ let g:tagbar_width = 30
 let g:UltiSnipsExpandTrigger        = "<c-j>"
 let g:UltiSnipsJumpForwardTrigger   = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
-let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
+let g:SuperTabDefaultCompletionType = "<C-X><C-U>"
 "}}}
 "Syntastic {{{
 
