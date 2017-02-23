@@ -28,6 +28,9 @@ Plugin 'tpope/vim-endwise'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'ctrlp.vim'
 Plugin 'rodjek/vim-puppet'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+Plugin 'Chiel92/vim-autoformat'
 call vundle#end()
 " }}}
 " Main options {{{
@@ -216,4 +219,10 @@ set updatetime=250
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 let g:gitgutter_enabled = 0
+" }}}
+" gist {{{
+let g:gist_detect_filetype = 1
+let g:gist_post_private = 1
+" }}}
+" autoformat {{{
 " }}}
