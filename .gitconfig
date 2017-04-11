@@ -76,7 +76,7 @@
 #############
   g = grep -p
 #############
-  l = log --oneline --first-parent --abbrev-commit
+  l = log --oneline --first-parent --abbrev-commit --decorate
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   lgo = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(bold)%C(magenta)(%an)%Creset' --abbrev-commit --date=relative --remotes=origin
   lm =  log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --merges --first-parent

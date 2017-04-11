@@ -49,8 +49,9 @@ noremap   <Right>  <NOP>
 "## 256 terminal
 set t_Co=256
 let g:solarized_termcolors=256
+let g:solarized_diffmode="high"
 set background=dark
-colorscheme badwolf 
+colorscheme solarized 
 set term=screen-256color
 
 "## More options
@@ -93,6 +94,7 @@ set mouse=a
 "Deal with html
 autocmd FileType html setlocal sw=2 ts=2 et smartindent
 autocmd FileType python,Makefile setlocal sw=2 ts=2 noexpandtab
+autocmd FileType java setlocal sw=4 ts=4 expandtab
 " }}}
 " Gvim {{{
 if has('gui_running')

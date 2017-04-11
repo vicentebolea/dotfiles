@@ -35,7 +35,8 @@ alias ua='update-alternatives '
 alias uac='update-alternatives --config '
 
 #Add git -> g alias and enable complete for it
-alias g='git '
+alias g='git status'
+alias gh='hub'
 complete -o default -o nospace -F _git g
 
 function _git_t {
