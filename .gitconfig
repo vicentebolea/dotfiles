@@ -195,7 +195,13 @@
     git merge $branchName;                                         \
     }; f" 
   t = "!bash -c '_git_tags_pretty_printer'"
+  sign = commit -S --amend --no-edit
 [mergetool]
 	prompt = false
 [rerere]
 	enabled = true
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

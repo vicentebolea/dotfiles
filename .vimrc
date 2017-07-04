@@ -228,3 +228,4 @@ let g:gist_post_private = 1
 " }}}
 " autoformat {{{
 " }}}
+source ~/.vimrc.local
