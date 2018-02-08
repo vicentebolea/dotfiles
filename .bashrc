@@ -19,6 +19,3 @@ if [[ -z "$(git config --get user.name)" || -z "$(git config --get user.email)" 
   git config -f ~/.gitconfig.local user.name "$GIT_AUTHOR_NAME"
   git config -f ~/.gitconfig.local user.email "$GIT_AUTHOR_EMAIL"
 fi
-
-# added by travis gem
-[ -f /home/vicente/.travis/travis.sh ] && source /home/vicente/.travis/travis.sh
