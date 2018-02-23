@@ -13,12 +13,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
-Plugin 'godlygeek/tabular'
 Plugin 'SuperTab'
-Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
-Plugin 'gregsexton/gitv'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -27,10 +23,9 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-endwise'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'ctrlp.vim'
-Plugin 'rodjek/vim-puppet'
+Plugin 'linediff.vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
-Plugin 'Chiel92/vim-autoformat'
 call vundle#end()
 " }}}
 " Main options {{{
@@ -56,10 +51,10 @@ set term=screen-256color
 
 "## More options
 set ruler
-"set number
 set incsearch
 set hlsearch
 set wildmenu
+set hidden  " Useful feature, to have multiples buffer open
 
 "## Cursor
 set cursorline
@@ -93,7 +88,7 @@ set mouse=a
 
 "Deal with html
 autocmd FileType html setlocal sw=2 ts=2 et smartindent
-autocmd FileType python,Makefile setlocal sw=2 ts=2 noexpandtab
+autocmd FileType Makefile setlocal sw=2 ts=2 noexpandtab
 autocmd FileType java setlocal sw=4 ts=4 expandtab
 " }}}
 " Gvim {{{
@@ -121,7 +116,7 @@ let g:clang_snippets_engine = 'ultisnips'
 "}}}
 "Key-binding {{{
 " ---------------------------------------------------------------------
-let mapleader = ","
+let mapleader = " "
 
 noremap  <Up>     <NOP>
 noremap  <Down>   <NOP>
@@ -133,24 +128,20 @@ nnoremap Q <Nop>
 map <silent> <F2> :tabprevious<Enter>
 map <silent> <F3> :tabnext<Enter>
 map <silent> <F4> :tabnew<Enter>
-map <F5> :make <Enter>
 map <silent> <F9> :NERDTreeToggle<Enter>
-map <silent> <F8> :TagbarToggle<Enter>
 
 "Customized shortcuts
-nnoremap <silent> <space>w :w!<cr>
 nnoremap <silent> <space>q :q<cr>
-nnoremap <silent> <space>s :Gstatus<CR>
-nnoremap <silent> <space>S :bd .git/index<CR>
-nnoremap <silent> <space>d :Gdiff<CR>
+nnoremap <silent> <space>w :w!<cr>
+nnoremap <silent> <space>e :Gstatus<CR>
+nnoremap <silent> <space>E :bd .git/index<CR>
 nnoremap <silent> <space>a :copen<CR>
 nnoremap <silent> <space>A :cclose<CR>
-nnoremap <silent> <space>g :GitGutterToggle<CR>
+nnoremap <silent> <space>d :Gdiff<CR>
 nnoremap <silent> <space>t :SyntasticCheck<CR>
 nnoremap <silent> <space>T :SyntasticReset<CR>
 nnoremap <silent> <space>r :SyntasticToggleMode<CR>
 nnoremap <silent> <space>/ :nohlsearch<CR>
-nnoremap <silent> <space>u :ClearCtrlPCache<CR>
 
 "Great map which saves the file in sudo mode, something like `sudo !!`
 cnoremap w!! w !sudo tee >/dev/null % 
@@ -170,12 +161,6 @@ let g:airline_right_sep=' '
 let g:airline_theme='powerlineish'
 
 "}}}
-"IndentLine {{{
-let g:indentLine_fileType = ['html','python','xml']
-let g:indentLine_char = "'"
-let g:html_indent_inctags = "html,body,head,tbody"
-let g:rehash256 = 1
-"}}}
 "NERDTree "{{{
 " ---------------------------------------------------------------------
 let g:NERDChristmasTree = 1
@@ -183,10 +168,6 @@ let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeDirArrows = 0
 " }}}
-" Easy Motion "{{{
-" ---------------------------------------------------------------------
-let g:EasyMotion_leader_key = '<Leader>'
-"}}}
 " Tagbar "{{{
 " ---------------------------------------------------------------------
 let g:tagbar_compact = 1
@@ -199,32 +180,17 @@ let g:UltiSnipsJumpForwardTrigger   = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
 let g:SuperTabDefaultCompletionType = "<C-X><C-U>"
 "}}}
-"Syntastic {{{
-
-"Java options
-let g:syntastic_java_javac_config_file_enabled=1
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-"nnoremap <Leader>t :SyntasticCheck<CR> :SyntasticToggleMode<CR>
-
-"C++ options
-let g:syntastic_cpp_compiler = 'g++'
-let g:syntastic_cpp_compiler_options = '-std=c++14'
-let g:syntastic_cpp_cpplint_exec = 'cpplint'
-let g:syntastic_cpp_checkers = ['g++', 'cpplint']
-" }}}
 " Signature {{{
 let g:snips_author = $GIT_AUTHOR_NAME
 " }}}
 " Fugitive {{{
 set diffopt+=vertical
 set updatetime=250
-let g:gitgutter_realtime = 1
-let g:gitgutter_eager = 1
-let g:gitgutter_enabled = 0
 " }}}
 " gist {{{
 let g:gist_detect_filetype = 1
 let g:gist_post_private = 1
+let g:gist_post_anonymous = 0
 " }}}
 " autoformat {{{
 " }}}
