@@ -1,4 +1,4 @@
-# Vicente's dotfiles [![Build Status](https://travis-ci.org/vicentebolea/dotfiles.svg?branch=master)](https://travis-ci.org/vicentebolea/dotfiles) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/vicentebolea/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Analytics](https://ga-beacon.appspot.com/UA-87479514-1/welcome-page)](https://github.com/vicentebolea/dotfiles)
+# Vicente's dotfiles [![Build Status](https://travis-ci.org/vicentebolea/dotfiles.svg?branch=master)](https://travis-ci.org/vicentebolea/dotfiles) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/vicentebolea/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ![Alt Text](https://raw.github.com/vicentebolea/dotfiles/master/screenshot.gif "My personal configuration for the Linux terminal with 256 colors")
 
