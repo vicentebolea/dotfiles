@@ -91,11 +91,13 @@ set mouse=a
 autocmd FileType html setlocal sw=2 ts=2 et smartindent
 autocmd FileType Makefile setlocal sw=2 ts=2 noexpandtab
 autocmd FileType java setlocal sw=4 ts=4 expandtab
-autocmd FileType python setlocal sw=2 ts=2 expandtab
-autocmd BufNewFile,BufRead *.log setlocal nowrap
+autocmd FileType Makefile setlocal sw=2 ts=2 noexpandtab
+autocmd FileType Python setlocal sw=2 ts=2 expandtab
 
 highlight BadWhitespace ctermbg=red guibg=darkred
 autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+autocmd BufEnter,BufNew *.log setlocal nowrap
 
 " }}}
 " Gvim {{{
