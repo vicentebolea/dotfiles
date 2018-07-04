@@ -4,6 +4,10 @@
 # iTerm → Profiles → Text → use 13pt Monaco with 1.1 vertical spacing.
 
 prompt_git() {
+  if [ $(git &>/dev/null; echo "${?}") == '127' ]; then
+    return;
+  fi
+
   local s='';
   local branchName='';
   # Check if the current directory is in a Git repository.

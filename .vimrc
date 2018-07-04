@@ -86,10 +86,17 @@ set exrc
 set wildignore=*.o,*.class,*.pyc
 set mouse=a
 
-"Deal with html
+" }}}
+" filetype settings {{{
 autocmd FileType html setlocal sw=2 ts=2 et smartindent
 autocmd FileType Makefile setlocal sw=2 ts=2 noexpandtab
 autocmd FileType java setlocal sw=4 ts=4 expandtab
+autocmd FileType python setlocal sw=2 ts=2 expandtab
+autocmd BufNewFile,BufRead *.log setlocal nowrap
+
+highlight BadWhitespace ctermbg=red guibg=darkred
+autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
 " }}}
 " Gvim {{{
 if has('gui_running')
@@ -108,6 +115,10 @@ set completeopt=menuone,menu,longest
 
 " clang_complete
 " ----------------------------------------------------
+if empty($CLANG_COMPLETE_LIB) 
+  let g:clang_complete_loaded = 1
+endif
+
 let g:clang_library_path    = $CLANG_COMPLETE_LIB
 let g:clang_auto_select     = 1
 let g:clang_complete_auto   = 0
@@ -131,17 +142,14 @@ map <silent> <F4> :tabnew<Enter>
 map <silent> <F9> :NERDTreeToggle<Enter>
 
 "Customized shortcuts
-nnoremap <silent> <space>q :q<cr>
-nnoremap <silent> <space>w :w!<cr>
-nnoremap <silent> <space>e :Gstatus<CR>
-nnoremap <silent> <space>E :bd .git/index<CR>
-nnoremap <silent> <space>a :copen<CR>
-nnoremap <silent> <space>A :cclose<CR>
-nnoremap <silent> <space>d :Gdiff<CR>
-nnoremap <silent> <space>t :SyntasticCheck<CR>
-nnoremap <silent> <space>T :SyntasticReset<CR>
-nnoremap <silent> <space>r :SyntasticToggleMode<CR>
-nnoremap <silent> <space>/ :nohlsearch<CR>
+nnoremap <silent> <leader>q :q<cr>
+nnoremap <silent> <leader>w :w!<cr>
+nnoremap <silent> <leader>e :Gstatus<CR>
+nnoremap <silent> <leader>E :bd .git/index<CR>
+nnoremap <silent> <leader>a :copen<CR>
+nnoremap <silent> <leader>A :cclose<CR>
+nnoremap <silent> <leader>d :Gdiff<CR>
+nnoremap <silent> <leader>/ :nohlsearch<CR>
 
 "Great map which saves the file in sudo mode, something like `sudo !!`
 cnoremap w!! w !sudo tee >/dev/null % 
@@ -178,7 +186,7 @@ let g:tagbar_width = 30
 let g:UltiSnipsExpandTrigger        = "<c-j>"
 let g:UltiSnipsJumpForwardTrigger   = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
-let g:SuperTabDefaultCompletionType = "<C-X><C-U>"
+let g:SuperTabDefaultCompletionType = "<C-n>"
 "}}}
 " Signature {{{
 let g:snips_author = $GIT_AUTHOR_NAME
@@ -191,7 +199,5 @@ set updatetime=250
 let g:gist_detect_filetype = 1
 let g:gist_post_private = 1
 let g:gist_post_anonymous = 0
-" }}}
-" autoformat {{{
 " }}}
 source ~/.vimrc.local
