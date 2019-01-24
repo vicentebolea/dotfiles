@@ -3,9 +3,10 @@
 ![Alt Text](https://raw.github.com/vicentebolea/dotfiles/master/screenshot.gif "My personal configuration for the Linux terminal with 256 colors")
 
 ## TL;DR
-Fast install with this single command:
+__ONE LINER__ install with this single command:
 ```sh
-$ git clone --recursive https://github.com/vicentebolea/dotfiles.git .dotfiles && cd .dotfiles && ./bin/dfm install && vim -c 'PluginUpdate'
+git clone --recursive https://github.com/vicentebolea/dotfiles.git .dotfiles \
+    && cd .dotfiles && ./bin/dfm install && vim +PluginUpdate
 ```
 
 ### Features:
