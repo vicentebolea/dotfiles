@@ -43,11 +43,11 @@ noremap   <Right>  <NOP>
 " Interface settings {{{
 "## 256 terminal
 set t_Co=256
-let g:solarized_termcolors=256
+set term=screen-256color
+" let g:solarized_termcolors=256 uses terminal color
 let g:solarized_diffmode="high"
 set background=dark
 colorscheme solarized 
-set term=screen-256color
 
 "## More options
 set ruler
@@ -88,7 +88,7 @@ set mouse=a
 
 " }}}
 " filetype settings {{{
-autocmd FileType html setlocal sw=2 ts=2 et smartindent
+autocmd FileType html setlocal sw=2 ts=2 noexpandtab autoindent
 autocmd FileType Makefile setlocal sw=2 ts=2 noexpandtab
 autocmd FileType java setlocal sw=4 ts=4 expandtab
 autocmd FileType Makefile setlocal sw=2 ts=2 noexpandtab
