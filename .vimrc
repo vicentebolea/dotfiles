@@ -61,6 +61,9 @@ set hidden  " Useful feature, to have multiples buffer open
 "## Cursor
 set cursorline
 match Error /{{{\|}}}/
+
+"Long wrapped line
+set showbreak=â€¦
 " }}}
 " General settings {{{
 "Set backup off since we are always using git :D
@@ -98,6 +101,8 @@ autocmd FileType Python setlocal sw=2 ts=2 expandtab
 
 highlight BadWhitespace ctermbg=red guibg=darkred
 autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+autocmd FileType markdown,rst,txt,tex setlocal textwidth=80 fo+=a colorcolumn=81 spell
 
 autocmd BufEnter,BufNew *.log setlocal nowrap
 
