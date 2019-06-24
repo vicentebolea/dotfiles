@@ -10,7 +10,7 @@ if [[ "$TERM" =~ .*256color ]]; then
 fi
 
 export PATH="$HOME/.bin:$PATH" 
-export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help:ll"
+#export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help:ll"
 export HISTCONTROL=ignoreboth
 export HISTSIZE=100000
 export HISTFILESIZE=100000

@@ -26,6 +26,7 @@ Plugin 'ctrlp.vim'
 Plugin 'linediff.vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
+Plugin 'altercation/vim-colors-solarized.git'
 call vundle#end()
 " }}}
 " Main options {{{
@@ -44,8 +45,9 @@ noremap   <Right>  <NOP>
 "## 256 terminal
 set t_Co=256
 set term=screen-256color
-" let g:solarized_termcolors=256 uses terminal color
+"let g:solarized_termcolors=256 " uses terminal color
 let g:solarized_diffmode="high"
+"let g:solarized_termtrans = 1
 set background=dark
 colorscheme solarized 
 
@@ -142,6 +144,8 @@ map <silent> <F2> :tabprevious<Enter>
 map <silent> <F3> :tabnext<Enter>
 map <silent> <F4> :tabnew<Enter>
 map <silent> <F9> :NERDTreeToggle<Enter>
+call togglebg#map("<F7>")
+map <silent> <F8> :Tagbar<CR>
 
 "Customized shortcuts
 nnoremap <silent> <leader>q :q<cr>
@@ -202,4 +206,8 @@ let g:gist_detect_filetype = 1
 let g:gist_post_private = 1
 let g:gist_post_anonymous = 0
 " }}}
+"
+set timeout
+set timeoutlen=300
+imap jj <Esc>
 source ~/.vimrc.local
