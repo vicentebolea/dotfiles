@@ -10,6 +10,7 @@
   [[default]]
     [[[child1]]]
       parent = window0
+      profile = base16
       type = Terminal
     [[[window0]]]
       parent = ""
@@ -24,6 +25,18 @@
     font = Source Code Pro Semi-Bold 11
     foreground_color = "#839496"
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    scrollback_lines = 2000
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+  [[base16]]
+    background_color = "#2d2d2d"
+    copy_on_selection = True
+    cursor_color = "#d3d0c8"
+    cursor_shape = underline
+    font = Source Code Pro Semi-Bold 11
+    foreground_color = "#d3d0c8"
+    palette = "#2d2d2d:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#d3d0c8:#747369:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#f2f0ec"
     scrollback_lines = 2000
     scrollbar_position = hidden
     show_titlebar = False

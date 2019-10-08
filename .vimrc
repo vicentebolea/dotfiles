@@ -10,66 +10,42 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized.git'
+Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-endwise'
 Plugin 'SuperTab'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'majutsushi/tagbar'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-endwise'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'ctrlp.vim'
-Plugin 'linediff.vim'
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
-Plugin 'altercation/vim-colors-solarized.git'
+Plugin 'chriskempson/base16-vim'
 call vundle#end()
 " }}}
-" Main options {{{
+" Essentials {{{
 filetype plugin indent on
 filetype plugin on
 filetype indent on
 syntax on
 
-" This is VIM we don't need arrow keys
-noremap   <Up>     <NOP>
-noremap   <Down>   <NOP>
-noremap   <Left>   <NOP>
-noremap   <Right>  <NOP>
-" }}}
-" Interface settings {{{
-"## 256 terminal
+"## COLORSCHEME
 set t_Co=256
 set term=screen-256color
-"let g:solarized_termcolors=256 " uses terminal color
-let g:solarized_diffmode="high"
-"let g:solarized_termtrans = 1
 set background=dark
-colorscheme solarized 
-
-"## More options
-set ruler
-set incsearch
-set hlsearch
-set wildmenu
-set hidden  " Useful feature, to have multiples buffer open
-
-"## Cursor
-set cursorline
-match Error /{{{\|}}}/
-
-"Long wrapped line
-set showbreak=â€¦
-" }}}
-" General settings {{{
-"Set backup off since we are always using git :D
-set noswapfile
-set nobackup
-set nowritebackup
+"## SOLARIZED
+"let g:solarized_termcolors=256 " uses terminal color
+"let g:solarized_diffmode="high"
+"let g:solarized_termtrans = 1
+"## BASE16
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+colorscheme base16-default-dark
 
 "Correct broken redraw
 set ttyfast
@@ -78,6 +54,29 @@ set novisualbell
 set t_vb=
 set lazyredraw
 
+"## More options
+set ruler
+set incsearch
+set hlsearch
+set wildmenu
+set wildignore=*.o,*.class,*.pyc
+set path+=**
+set hidden  " Useful feature, to have multiples buffer open
+set mouse=a
+
+"## Cursor
+set cursorline
+match Error /{{{\|}}}/
+set exrc
+
+"Long wrapped line
+set showbreak=↳\  
+
+"Set backup off since we are always using git :D
+set noswapfile
+set nobackup
+set nowritebackup
+
 "Indentation
 set shiftwidth=2
 set expandtab
@@ -85,11 +84,6 @@ set tabstop=2
 set backspace=2
 set foldmethod=marker
 set cino=N-s
-
-"uncategorized
-set exrc
-set wildignore=*.o,*.class,*.pyc
-set mouse=a
 
 " }}}
 " filetype settings {{{
@@ -101,9 +95,7 @@ autocmd FileType Python setlocal sw=2 ts=2 expandtab
 
 highlight BadWhitespace ctermbg=red guibg=darkred
 autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-autocmd FileType markdown,rst,txt,tex setlocal textwidth=80 fo+=a colorcolumn=81 spell
-
+autocmd FileType html,markdown,rst,txt,tex setlocal textwidth=80 colorcolumn=81 spell
 autocmd BufEnter,BufNew *.log setlocal nowrap
 
 " }}}
@@ -138,6 +130,7 @@ let g:clang_snippets_engine = 'ultisnips'
 " ---------------------------------------------------------------------
 let mapleader = " "
 
+" This is VIM we don't need arrow keys
 noremap  <Up>     <NOP>
 noremap  <Down>   <NOP>
 noremap  <Left>   <NOP>
@@ -148,9 +141,9 @@ nnoremap Q <Nop>
 map <silent> <F2> :tabprevious<Enter>
 map <silent> <F3> :tabnext<Enter>
 map <silent> <F4> :tabnew<Enter>
+map <silent> <F5> :!ctags -f .tags -R -Q **/*.c **/*.cpp **/*.h<Enter>
 map <silent> <F9> :NERDTreeToggle<Enter>
 call togglebg#map("<F7>")
-map <silent> <F8> :Tagbar<CR>
 
 "Customized shortcuts
 nnoremap <silent> <leader>q :q<cr>
@@ -187,12 +180,6 @@ let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeDirArrows = 0
 " }}}
-" Tagbar "{{{
-" ---------------------------------------------------------------------
-let g:tagbar_compact = 1
-let g:tagbar_width = 30
-"
-"}}}
 "SuperTab | utisnipts {{{
 let g:UltiSnipsExpandTrigger        = "<c-j>"
 let g:UltiSnipsJumpForwardTrigger   = "<c-j>"
@@ -206,13 +193,4 @@ let g:snips_author = $GIT_AUTHOR_NAME
 set diffopt+=vertical
 set updatetime=250
 " }}}
-" gist {{{
-let g:gist_detect_filetype = 1
-let g:gist_post_private = 1
-let g:gist_post_anonymous = 0
-" }}}
-"
-set timeout
-set timeoutlen=300
-imap jj <Esc>
 source ~/.vimrc.local

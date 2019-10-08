@@ -97,7 +97,7 @@
   pr = prune -v
 #############
   ps = push
-  psf = push -f
+  psf = push --force-with-lease
   psu = push -u
   pso = push origin
   psao = push --all origin
