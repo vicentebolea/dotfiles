@@ -2,10 +2,12 @@
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   inactive_color_offset = 1.0
   putty_paste_style = True
+  smart_copy = False
   title_font = Roboto Mono Bold 9
   title_hide_sizetext = True
   title_use_system_font = False
 [keybindings]
+  help = None
 [layouts]
   [[default]]
     [[[child1]]]

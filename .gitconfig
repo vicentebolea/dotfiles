@@ -21,7 +21,7 @@
 [diff]
   tool = vimdiff 
 [merge]
-	tool = vimdiff
+  tool = vimdiff
   log = true
 [push]
   default = current
@@ -199,13 +199,13 @@
   t = "!bash -c '_git_tags_pretty_printer'"
   sign = commit -S --amend --no-edit
 [mergetool]
-	prompt = false
+  prompt = false
 [rerere]
-	enabled = true
+  enabled = true
 [filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
 [pager]
   branch = false

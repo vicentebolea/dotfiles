@@ -24,6 +24,7 @@ Plugin 'Rip-Rip/clang_complete'
 Plugin 'ctrlp.vim'
 Plugin 'chriskempson/base16-vim'
 call vundle#end()
+
 " }}}
 " Essentials {{{
 filetype plugin indent on
@@ -31,7 +32,25 @@ filetype plugin on
 filetype indent on
 syntax on
 
+" We drink from the defaults of vim
+source $VIMRUNTIME/defaults.vim
+
+" Add optional packages.
+" The matchit plugin makes the % command work better, but it is not
+" backwards compatible.
+if has('syntax') && has('eval')
+  packadd matchit
+endif
+
+" This is VIM we don't need arrow keys
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
+" }}}
+" Interface settings {{{
 "## COLORSCHEME
+"## 256 terminal
 set t_Co=256
 set term=screen-256color
 set background=dark
