@@ -54,17 +54,16 @@ noremap   <Right>  <NOP>
 set t_Co=256
 set term=screen-256color
 set background=dark
-"## SOLARIZED
-"let g:solarized_termcolors=256 " uses terminal color
-"let g:solarized_diffmode="high"
-"let g:solarized_termtrans = 1
+
 "## BASE16
+colorscheme base16-default-dark
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
+else 
+  hi Folded ctermbg=16
 endif
-colorscheme base16-default-dark
 
 "Correct broken redraw
 set ttyfast
@@ -84,7 +83,7 @@ set hidden  " Useful feature, to have multiples buffer open
 set mouse=a
 
 "## Cursor
-set cursorline
+"set cursorline
 match Error /{{{\|}}}/
 set exrc
 
@@ -212,4 +211,8 @@ let g:snips_author = $GIT_AUTHOR_NAME
 set diffopt+=vertical
 set updatetime=250
 " }}}
-source ~/.vimrc.local
+" Local Config {{{
+if filereadable("~/.vimrc.local")
+  source ~/.vimrc.local
+endif
+" }}}
