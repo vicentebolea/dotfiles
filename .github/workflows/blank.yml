@@ -11,5 +11,5 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run very simple test
       run: |
-        - bin/dfm install
-        - source ~/.bashrc
+        bin/dfm install
+        source ~/.bashrc
