@@ -9,7 +9,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Run very simple test
+    - name: Git clone and install
       run: bash -c 'bin/dfm install && source ~/.bashrc'
       env:
         SHELL: bash
+      with:
+        submodules: recursive
+
+    - name: Install vim plugins
+      run: vim -c 'PluginUpdate' -c 'q'
