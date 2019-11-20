@@ -11,3 +11,5 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run very simple test
       run: bash -c 'bin/dfm install && source ~/.bashrc'
+      env:
+        SHELL: bash
