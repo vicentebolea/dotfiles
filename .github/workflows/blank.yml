@@ -8,10 +8,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Git clone and install
+    - name: Git clone
       uses: actions/checkout@v1
       with:
         submodules: recursive
+
+    - name: Install dotfiles
       run: bash -c 'bin/dfm install && source ~/.bashrc'
       env:
         SHELL: bash
