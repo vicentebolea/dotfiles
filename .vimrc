@@ -37,6 +37,7 @@ set term=screen-256color
 set background=dark
 
 "## BASE16
+try
 colorscheme base16-default-dark
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -45,6 +46,8 @@ if exists('+termguicolors')
 else 
   hi Folded ctermbg=16
 endif
+catch 
+endtry
 
 "Correct broken redraw
 set ttyfast
@@ -142,7 +145,10 @@ map <silent> <F3> :tabnext<Enter>
 map <silent> <F4> :tabnew<Enter>
 map <silent> <F5> :!ctags -f .tags -R -Q **/*.c **/*.cpp **/*.h<Enter>
 map <silent> <F9> :NERDTreeToggle<Enter>
+try
 call togglebg#map("<F7>")
+catch
+endtry
 
 "Customized shortcuts
 nnoremap <silent> <leader>q :q<cr>

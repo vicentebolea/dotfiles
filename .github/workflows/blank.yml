@@ -20,4 +20,4 @@ jobs:
 
 
     - name: Install vim plugins
-      run: vim -c 'PluginUpdate' -c 'q'
+      run: vim -c 'PluginUpdate' -c 'qa!'
