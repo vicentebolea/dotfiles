@@ -8,13 +8,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
     - name: Git clone and install
+      uses: actions/checkout@v1
+      with:
+        submodules: recursive
       run: bash -c 'bin/dfm install && source ~/.bashrc'
       env:
         SHELL: bash
-      with:
-        submodules: recursive
+
 
     - name: Install vim plugins
       run: vim -c 'PluginUpdate' -c 'q'
