@@ -45,4 +45,7 @@ function _git_t {
 function ip-local {
   ip addr | grep -Po '(?!(inet 127.\d.\d.1))(inet \K(\d{1,3}\.){3}\d{1,3})'
 }
+
+alias dirs='dirs -v'
+
 # vim: ft=sh :

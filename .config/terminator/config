@@ -12,14 +12,14 @@
   [[default]]
     [[[child1]]]
       parent = window0
-      profile = base16
+      profile =solarized 
       type = Terminal
     [[[window0]]]
       parent = ""
       type = Window
 [plugins]
 [profiles]
-  [[default]]
+  [[solarized]]
     background_color = "#002b36"
     copy_on_selection = True
     cursor_color = "#aaaaaa"
