@@ -1,12 +1,16 @@
 " vim : foldmethod=manual :
+
+" DeleteTrailingsWS {{{
 func! DeleteTrailingsWS()
   execute "normal! mz"
   %s/\s\+$//ge
   execute "normal! 'z"
 endfunc
 
-
-func! MethodDefinition()
+command DeleteTrailingsWS :call ToggleGStatus()
+" }}}
+" CPPMethodDefinition {{{
+func! CPPMethodDefinition()
   let pattern      = '^\s*\(\w\+\)\s\+\(\w\+\)\s*(\([^)]*\)).*;$'
   let output       = matchlist(getline('.'), pattern)
   let file_to_mod  = expand("%")
@@ -33,9 +37,8 @@ func! MethodDefinition()
   execute "normal! O// " . f_name . " {{{"
   execute "normal! jo}\<ESC>o// }}}"
 endfunc
-
-nnoremap <Leader>c :call MethodDefinition()<Enter>
-
+" }}}
+" ToggleHomeZero {{{
 function! ToggleHomeZero()
   let pos = getpos('.')
   execute "normal! ^"
@@ -45,3 +48,19 @@ function! ToggleHomeZero()
 endfunction
 
 nnoremap <silent> 0 :call ToggleHomeZero()<CR>
+" }}}
+" ToggleGStatus {{{{
+function! ToggleGStatus()
+    if buflisted(bufname('.git/index'))
+        bd .git/index
+    else
+        Git
+    endif
+endfunction
+
+command ToggleGStatus :call ToggleGStatus()
+" }}}}
+
+nnoremap <silent> <leader>s :ToggleGStatus<CR>
+nnoremap <silent>0 :call ToggleHomeZero()<CR>
+nnoremap <silent><Leader>c :call CPPMethodDefinition()<CR>

@@ -2,6 +2,7 @@
   path = ~/.gitconfig.local
 [core] 
   editor = vim 
+	excludesfile = /home/vicente/.gitignore
 [color]
   ui = auto
 [color "branch"]
@@ -198,6 +199,7 @@
     }; f" 
   t = "!bash -c '_git_tags_pretty_printer'"
   sign = commit -S --amend --no-edit
+  ups = commit --amend -a --reset-author --no-edit
 [mergetool]
   prompt = false
 [rerere]

@@ -2,6 +2,7 @@ bin skip
 README.md skip
 LICENSE skip
 .gitmodules skip
+.gitignore skip
 screenshot.gif skip
 .travis.yml skip
 .config recurse

@@ -23,6 +23,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'ctrlp.vim'
 Plugin 'chriskempson/base16-vim'
+Plugin 'majutsushi/tagbar'
 call vundle#end()
 
 " }}}
@@ -86,7 +87,7 @@ set hidden  " Useful feature, to have multiples buffer open
 set mouse=a
 
 "## Cursor
-"set cursorline
+set cursorline
 match Error /{{{\|}}}/
 set exrc
 
@@ -159,25 +160,20 @@ noremap  <Right>  <NOP>
 nnoremap Q <Nop>
 
 " Tabs
-map <silent> <F2> :tabprevious<Enter>
-map <silent> <F3> :tabnext<Enter>
-map <silent> <F4> :tabnew<Enter>
-map <silent> <F5> :!ctags -f .tags -R -Q **/*.c **/*.cpp **/*.h<Enter>
-map <silent> <F9> :NERDTreeToggle<Enter>
+nnoremap <silent> <F2> :tabprevious<Enter>
+nnoremap <silent> <F3> :tabnext<Enter>
+nnoremap <silent> <F4> :tabnew<Enter>
+nnoremap <silent> <F5> :!ctags -f .tags -R -Q **/*.c **/*.cpp **/*.h<Enter>
+nnoremap <silent> <F8> :TagbarToggle<Enter>
+nnoremap <silent> <F9> :NERDTreeToggle<Enter>
 try
 call togglebg#map("<F7>")
 catch
 endtry
 
 "Customized shortcuts
-nnoremap <silent> <leader>q :q<cr>
-nnoremap <silent> <leader>w :w!<cr>
-nnoremap <silent> <leader>e :Gstatus<CR>
-nnoremap <silent> <leader>E :bd .git/index<CR>
-nnoremap <silent> <leader>a :copen<CR>
-nnoremap <silent> <leader>A :cclose<CR>
+nnoremap <silent> <leader>s :Gstatus<CR>
 nnoremap <silent> <leader>d :Gdiff<CR>
-nnoremap <silent> <leader>/ :nohlsearch<CR>
 
 "Great map which saves the file in sudo mode, something like `sudo !!`
 cnoremap w!! w !sudo tee >/dev/null % 
@@ -195,7 +191,10 @@ set laststatus=2
 let g:airline_left_sep=' '
 let g:airline_right_sep=' '
 let g:airline_theme='powerlineish'
-
+let g:airline#extensions#branch#displayed_head_limit = 10
+let g:airline#extensions#branch#enabled = 0
+let g:airline#extensions#branch#format = 2
+let g:airline_section_y = 0
 "}}}
 "NERDTree "{{{
 " ---------------------------------------------------------------------
@@ -205,9 +204,9 @@ let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeDirArrows = 0
 " }}}
 "SuperTab | utisnipts {{{
-let g:UltiSnipsExpandTrigger        = "<c-j>"
-let g:UltiSnipsJumpForwardTrigger   = "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
+let g:UltiSnipsExpandTrigger        = "<C-j>"
+let g:UltiSnipsJumpForwardTrigger   = "<C-k>"
+let g:UltiSnipsJumpBackwardTrigger  = "<C-M-k>"
 let g:SuperTabDefaultCompletionType = "<C-n>"
 "}}}
 " Signature {{{
@@ -218,7 +217,7 @@ set diffopt+=vertical
 set updatetime=250
 " }}}
 " Local Config {{{
-if filereadable("~/.vimrc.local")
+if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
 " }}}
