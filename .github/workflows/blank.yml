@@ -4,8 +4,10 @@ on: [push]
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-16.04, ubuntu-18.04]
 
     steps:
     - name: Git clone
@@ -22,5 +24,11 @@ jobs:
     - name: Install vim plugins
       run: vim -c 'redir > ~/vim_err.log' -c 'PluginUpdate' -c 'redir END' -c 'qa!'
 
-    - name: Check Output
+    - name: Print Output
+      run: cat ~/vim_err.log
+
+    - name: Check Output 1
       run: bash -c '! grep -P "^E\d*:" ~/vim_err.log'
+
+    - name: Check Output 2
+      run: bash -c '! grep -iP "^Error" ~/vim_err.log'

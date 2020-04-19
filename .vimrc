@@ -8,8 +8,8 @@
 set nocp
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
+"Plugin 'VundleVim/Vundle.vim'
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-endwise'
 Plugin 'altercation/vim-colors-solarized.git'
