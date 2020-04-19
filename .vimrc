@@ -10,14 +10,14 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-endwise'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Raimondi/delimitMate'
-Plugin 'tpope/vim-endwise'
 Plugin 'SuperTab'
-Plugin 'tpope/vim-fugitive'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Rip-Rip/clang_complete'
@@ -29,16 +29,16 @@ call vundle#end()
 " }}}
 " Essentials {{{
 filetype plugin indent on
-filetype plugin on
-filetype indent on
 syntax on
 
 " We drink from the defaults of vim
-source $VIMRUNTIME/defaults.vim
+if filereadable($VIMRUNTIME . "/defaults.vim")
+  source $VIMRUNTIME/defaults.vim
+else
+  set incsearch showcmd wildmenu
+endif
 
-" Add optional packages.
-" The matchit plugin makes the % command work better, but it is not
-" backwards compatible.
+" The matchit plugin makes the % command better, but it is not backwards compatible.
 if has('syntax') && has('eval')
   packadd matchit
 endif
@@ -51,8 +51,6 @@ noremap   <Right>  <NOP>
 " }}}
 " Interface settings {{{
 "## COLORSCHEME
-"## 256 terminal
-set t_Co=256
 set term=screen-256color
 set background=dark
 
@@ -73,20 +71,14 @@ endtry
 set ttyfast
 set noerrorbells
 set novisualbell
-set t_vb=
 set lazyredraw
 
-"## More options
-set ruler
-set incsearch
+" More options
 set hlsearch
-set wildmenu
 set wildignore=*.o,*.class,*.pyc
 set path+=**
 set hidden  " Useful feature, to have multiples buffer open
 set mouse=a
-
-"## Cursor
 set cursorline
 match Error /{{{\|}}}/
 set exrc
@@ -112,7 +104,6 @@ set cino=N-s
 autocmd FileType html setlocal sw=2 ts=2 noexpandtab autoindent
 autocmd FileType Makefile setlocal sw=2 ts=2 noexpandtab
 autocmd FileType java setlocal sw=4 ts=4 expandtab
-autocmd FileType Makefile setlocal sw=2 ts=2 noexpandtab
 autocmd FileType Python setlocal sw=2 ts=2 expandtab
 
 highlight BadWhitespace ctermbg=red guibg=darkred
@@ -134,7 +125,7 @@ endif
 "Autocomplete  {{{
 set dictionary+=/usr/share/dict/words
 set tags+=.tags
-set completeopt=menuone,menu,longest
+set completeopt=menuone,menu,preview,longest
 
 " clang_complete
 " ----------------------------------------------------
@@ -145,8 +136,8 @@ endif
 let g:clang_library_path    = $CLANG_COMPLETE_LIB
 let g:clang_auto_select     = 1
 let g:clang_complete_auto   = 0
-let g:clang_snippets        = 1
-let g:clang_snippets_engine = 'ultisnips'
+let g:clang_snippets        = 0
+"let g:clang_snippets_engine = 'ultisnips'
 "}}}
 "Key-binding {{{
 " ---------------------------------------------------------------------
