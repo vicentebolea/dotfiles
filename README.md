@@ -1,4 +1,4 @@
-# Vicente's dotfiles [![Build Status](https://travis-ci.org/vicentebolea/dotfiles.svg?branch=master)](https://travis-ci.org/vicentebolea/dotfiles) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/vicentebolea/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) <a href='https://ko-fi.com/A0A5XV77' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+# Vicente's dotfiles ![CI](https://github.com/vicentebolea/dotfiles/workflows/CI/badge.svg) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/vicentebolea/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) <a href='https://ko-fi.com/A0A5XV77' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
 ![Alt Text](https://raw.github.com/vicentebolea/dotfiles/master/screenshot.gif "My personal configuration for the Linux terminal with 256 colors")
 
