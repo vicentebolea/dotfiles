@@ -23,4 +23,4 @@ jobs:
       run: vim -c 'redir > ~/vim_err.log' -c 'PluginUpdate' -c 'redir END' -c 'qa!'
 
     - name: Check Output
-      run: ! grep -P '^E\d*:' ~/vim_err.log
+      run: bash -c '! grep -P "^E\d*:" ~/vim_err.log'
