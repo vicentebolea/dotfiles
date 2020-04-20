@@ -1,5 +1,0 @@
-#
-language: bash
-script: 
-  - bin/dfm install
-  - source ~/.bashrc

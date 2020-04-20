@@ -4,6 +4,6 @@ LICENSE skip
 .gitmodules skip
 .gitignore skip
 screenshot.gif skip
-.travis.yml skip
 .config recurse
 .bin recurse
+.github skip
