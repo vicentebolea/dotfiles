@@ -11,6 +11,7 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-sensible'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
@@ -27,19 +28,11 @@ call vundle#end()
 
 " }}}
 " Essentials {{{
-filetype plugin indent on
-syntax on
-
 " We drink from the defaults of vim
 if filereadable($VIMRUNTIME . "/defaults.vim")
   source $VIMRUNTIME/defaults.vim
 else
   set incsearch showcmd wildmenu
-endif
-
-" The matchit plugin makes the % command better, but it is not backwards compatible.
-if has('syntax') && has('eval')
-  packadd matchit
 endif
 
 " This is VIM we don't need arrow keys
@@ -123,7 +116,6 @@ endif
 " }}}
 "Autocomplete  {{{
 set dictionary+=/usr/share/dict/words
-set tags+=.tags
 set completeopt=menuone,menu,preview,longest
 
 " clang_complete
@@ -177,14 +169,15 @@ ab WQA wqa
 ab Wqa wqa
 "}}}
 "vim-airline {{{
-set laststatus=2
-let g:airline_left_sep=' '
-let g:airline_right_sep=' '
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 let g:airline_theme='powerlineish'
 let g:airline#extensions#branch#displayed_head_limit = 10
 let g:airline#extensions#branch#enabled = 0
 let g:airline#extensions#branch#format = 2
+let g:airline_skip_empty_sections = 1
 let g:airline_section_y = 0
+let g:airline_extensions = []
 "}}}
 "NERDTree "{{{
 " ---------------------------------------------------------------------
