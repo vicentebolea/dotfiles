@@ -47,5 +47,6 @@ function ip-local {
 }
 
 alias dirs='dirs -v'
+alias dmesg='dmesg -HTw'
 
 # vim: ft=sh :

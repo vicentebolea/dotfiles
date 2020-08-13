@@ -3,6 +3,7 @@
 [core] 
   editor = vim 
 	excludesfile = /home/vicente/.gitignore
+	pager = less -F -X
 [color]
   ui = auto
 [color "branch"]
@@ -28,8 +29,10 @@
   default = current
 [url "http://bitbucket.org/"]
   insteadOf = bb:
-[url "https://github.com/"]
+[url "git@github.com:"]
   insteadOf = gh:
+[url "git@gitlab.kitware.com:"]
+  insteadOf = kw:
 [url "https://gist.github.com/"]
   insteadOf = gist:
 [alias]
@@ -69,7 +72,7 @@
   ds = diff --stat
   dck = diff --cached --check
 #############
-  f = fetch
+  f = fetch --prune --all
   fo = fetch origin
   fu = fetch upstream
 #############
@@ -126,7 +129,9 @@
   rbc = rebase --continue
   rbi = rebase --interactive
   rbs = rebase --skip
+  rbu = rebase upstream/master
 #############
+  update = reset --hard @{u}
   re = reset
   rh = reset HEAD
   reh = reset --hard

@@ -53,10 +53,10 @@ try
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-else 
+else
   hi Folded ctermbg=16
 endif
-catch 
+catch
 endtry
 
 "Correct broken redraw
@@ -98,18 +98,25 @@ autocmd FileType Makefile setlocal sw=2 ts=2 noexpandtab
 autocmd FileType java setlocal sw=4 ts=4 expandtab
 autocmd FileType Python setlocal sw=2 ts=2 expandtab
 
-highlight BadWhitespace ctermbg=red guibg=darkred
-autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 autocmd FileType html,markdown,rst,txt,tex setlocal textwidth=80 colorcolumn=81 spell
 autocmd BufEnter,BufNew *.log setlocal nowrap
 
+augroup tabsPolicy
+  autocmd!
+  autocmd BufEnter,BufNew *.tsv setlocal noexpandtab tabstop=6 sw=6
+  autocmd BufEnter,BufNew *.tsv,Makefile,*.make,*.html :let b:SuperTabDisabled=1
+  autocmd BufEnter,BufNew *.tsv,Makefile,*.make,*.html :silent! iunmap <Tab>
+augroup end
+
+highlight BadWhitespace ctermbg=red guibg=darkred
+autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 " }}}
 " Gvim {{{
 if has('gui_running')
-  set guifont=Monaco\ 11
+  set guifont=Source\ Code\ Pro\ Semi-Bold\ 11
   set linespace=2    "Better line-height
-  set guioptions-=m  "remove menu bar
-  set guioptions-=T  "remove toolbar
+  "set guioptions-=m  "remove menu bar
+  "set guioptions-=T  "remove toolbar
   set guioptions-=r  "remove right-hand scroll bar
   set guioptions-=L  "remove left-hand scroll bar
 endif
@@ -120,15 +127,16 @@ set completeopt=menuone,menu,preview,longest
 
 " clang_complete
 " ----------------------------------------------------
-if empty($CLANG_COMPLETE_LIB) 
+if empty($CLANG_COMPLETE_LIB)
   let g:clang_complete_loaded = 1
 endif
+
+let g:clang_complete_loaded = 0
 
 let g:clang_library_path    = $CLANG_COMPLETE_LIB
 let g:clang_auto_select     = 1
 let g:clang_complete_auto   = 0
 let g:clang_snippets        = 0
-"let g:clang_snippets_engine = 'ultisnips'
 "}}}
 "Key-binding {{{
 " ---------------------------------------------------------------------
@@ -158,7 +166,7 @@ nnoremap <silent> <leader>s :Gstatus<CR>
 nnoremap <silent> <leader>d :Gdiff<CR>
 
 "Great map which saves the file in sudo mode, something like `sudo !!`
-cnoremap w!! w !sudo tee >/dev/null % 
+cnoremap w!! w !sudo tee >/dev/null %
 
 ab W w
 ab Wq wq
@@ -177,7 +185,15 @@ let g:airline#extensions#branch#enabled = 0
 let g:airline#extensions#branch#format = 2
 let g:airline_skip_empty_sections = 1
 let g:airline_section_y = 0
-let g:airline_extensions = []
+let g:airline#extensions#whitespace#enabled = 0
+
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_tabs = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 "}}}
 "NERDTree "{{{
 " ---------------------------------------------------------------------
@@ -197,7 +213,9 @@ let g:snips_author = $GIT_AUTHOR_NAME
 " }}}
 " Fugitive {{{
 set diffopt+=vertical
-set updatetime=250
+" }}}
+" CtrlP {{{
+let g:ctrlp_cmd = 'CtrlPMixed'
 " }}}
 " Local Config {{{
 if filereadable($HOME . "/.vimrc.local")
