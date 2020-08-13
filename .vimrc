@@ -16,7 +16,7 @@ Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Raimondi/delimitMate'
+"Plugin 'Raimondi/delimitMate'
 Plugin 'SuperTab'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -24,6 +24,7 @@ Plugin 'Rip-Rip/clang_complete'
 Plugin 'ctrlp.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'vim-scripts/a.vim.git'
 call vundle#end()
 
 " }}}
@@ -162,8 +163,11 @@ catch
 endtry
 
 "Customized shortcuts
-nnoremap <silent> <leader>s :Gstatus<CR>
-nnoremap <silent> <leader>d :Gdiff<CR>
+nnoremap <silent><leader>a :A<CR>
+nnoremap <silent><leader>d :Gdiff<CR>
+nnoremap <silent><leader>g :Git<CR>:10wincmd_<CR>
+nnoremap <silent><leader>T :tabclose<CR>
+nnoremap <silent><leader>t :tabnew<CR>
 
 "Great map which saves the file in sudo mode, something like `sudo !!`
 cnoremap w!! w !sudo tee >/dev/null %

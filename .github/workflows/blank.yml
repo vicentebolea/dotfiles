@@ -22,7 +22,7 @@ jobs:
 
 
     - name: Install vim plugins
-      run: vim -c 'redir > ~/vim_err.log' -c 'PluginUpdate' -c 'redir END' -c 'qa!'
+      run: vim -c 'redir > ~/vim_err.log' -c 'silent! PluginUpdate' -c 'redir END' -c 'qa!'
 
     - name: Print Output
       run: cat ~/vim_err.log
