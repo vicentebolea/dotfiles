@@ -12,6 +12,7 @@ call vundle#begin()
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
