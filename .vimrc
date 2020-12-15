@@ -6,27 +6,12 @@
 "    2. $GIT_AUTHOR_NAME
 " Bundle {{{
 set nocp
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'altercation/vim-colors-solarized.git'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'Raimondi/delimitMate'
-Plugin 'SuperTab'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'Rip-Rip/clang_complete'
-Plugin 'ctrlp.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'vim-scripts/a.vim.git'
-call vundle#end()
+
+" Legacy options for version before Vim 8
+let b:legacy_file = $HOME . "/.vimrc.legacy"
+if filereadable(b:legacy_file)
+  execute "source" . b:legacy_file
+endif
 
 " }}}
 " Essentials {{{
@@ -35,6 +20,12 @@ if filereadable($VIMRUNTIME . "/defaults.vim")
   source $VIMRUNTIME/defaults.vim
 else
   set incsearch showcmd wildmenu
+endif
+
+" The matchit plugin makes the % command better, but it is not backwards compatible.
+if v:version >= 800 && has('syntax') && has('eval')
+  packadd matchit
+  packadd shellmenu 
 endif
 
 " This is VIM we don't need arrow keys
@@ -92,6 +83,10 @@ set tabstop=2
 set backspace=2
 set foldmethod=marker
 set cino=N-s
+
+if v:version >= 800
+  set breakindent
+endif
 
 " }}}
 " filetype settings {{{
@@ -220,10 +215,11 @@ let g:snips_author = $GIT_AUTHOR_NAME
 set diffopt+=vertical
 " }}}
 " CtrlP {{{
-let g:ctrlp_cmd = 'CtrlPMixed'
+"let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix']
 " }}}
 " Local Config {{{
 if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
+  source $HOME/.vimrc.local
 endif
 " }}}
