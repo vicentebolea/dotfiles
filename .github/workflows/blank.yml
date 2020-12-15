@@ -20,15 +20,18 @@ jobs:
       env:
         SHELL: bash
 
-
     - name: Install vim plugins
-      run: vim -c 'redir > ~/vim_err.log' -c 'silent! PluginUpdate' -c 'redir END' -c 'qa!'
+      if: matrix.os == 'ubuntu-16.04'
+      run: timeout 60 vim -cmd 'redir > ~/vim_err.log' -c 'silent! PluginUpdate' -c 'redir END' -c 'qa!'
+
+    - name: Smoke test vim
+      run: timeout 5 vim -cmd 'redir! > ~/vim_err.log' -c 'redir END | qa!'
 
     - name: Print Output
-      run: cat ~/vim_err.log
+      run: bash -c 'test -e ~/vim_err.log && cat ~/vim_err.log; true'
 
     - name: Check Output 1
-      run: bash -c '! grep -P "^E\d*:" ~/vim_err.log'
+      run: bash -c 'test -e ~/vim_err.log && ! grep -P "^E\d*:" ~/vim_err.log; true'
 
-    - name: Check Output 2
-      run: bash -c '! grep -iP "^Error" ~/vim_err.log'
+    - name: Check Output 
+      run: bash -c 'test -e ~/vim_err.log && ! grep -iP "^Error" ~/vim_err.log; true'

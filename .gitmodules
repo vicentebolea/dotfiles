@@ -1,3 +1,60 @@
 [submodule ".vim/bundle/Vundle.vim"]
 	path = .vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
+[submodule ".vim/pack/dist/start/vim-fugitive"]
+	path = .vim/pack/dist/start/vim-fugitive
+	url = http://github.com/tpope/vim-fugitive.git
+	branch = master
+[submodule ".vim/pack/dist/start/vim-endwise"]
+	path = .vim/pack/dist/start/vim-endwise
+	url = http://github.com/tpope/vim-endwise.git
+	branch = master
+[submodule ".vim/pack/dist/start/nerdtree"]
+	path = .vim/pack/dist/start/nerdtree
+	url = http://github.com/scrooloose/nerdtree
+	branch = master
+[submodule ".vim/pack/dist/start/vim-airline"]
+	path = .vim/pack/dist/start/vim-airline
+	url = http://github.com/vim-airline/vim-airline
+	branch = master
+[submodule ".vim/pack/dist/start/vim-airline-themes"]
+	path = .vim/pack/dist/start/vim-airline-themes
+	url = http://github.com/vim-airline/vim-airline-themes
+	branch = master
+[submodule ".vim/pack/dist/start/delimitMate"]
+	path = .vim/pack/dist/start/delimitMate
+	url = http://github.com/Raimondi/delimitMate
+	branch = master
+[submodule ".vim/pack/dist/start/ultisnips"]
+	path = .vim/pack/dist/start/ultisnips
+	url = http://github.com/Sirver/ultisnips
+	branch = master
+[submodule ".vim/pack/dist/start/clang_complete"]
+	path = .vim/pack/dist/start/clang_complete
+	url = http://github.com/Rip-Rip/clang_complete
+	branch = master
+[submodule ".vim/pack/dist/start/tagbar"]
+	path = .vim/pack/dist/start/tagbar
+	url = http://github.com/majutsushi/tagbar
+	branch = master
+[submodule ".vim/pack/dist/start/vim-colors-solarized"]
+	path = .vim/pack/dist/start/vim-colors-solarized
+	url = http://github.com/altercation/vim-colors-solarized.git
+	branch = master
+[submodule ".vim/pack/dist/start/SuperTab"]
+	path = .vim/pack/dist/start/SuperTab
+	url = https://github.com/vim-scripts/SuperTab.git
+	branch = master
+[submodule ".vim/pack/dist/start/ctrlp.vim"]
+	path = .vim/pack/dist/start/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+	branch = master
+[submodule ".vim/pack/dist/start/vim-unimpaired"]
+	path = .vim/pack/dist/start/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
+	branch = master
+
+[submodule ".vim/pack/dist/start/a.vim"]
+	path = .vim/pack/dist/start/a.vim
+	url = https://github.com/vim-scripts/a.vim.git
+	branch = master
