@@ -223,3 +223,5 @@ if filereadable($HOME . "/.vimrc.local")
   source $HOME/.vimrc.local
 endif
 " }}}
+
+let g:vimwiki_list = [{ 'path' : "/home/vicente/Documents/Notes/" }]

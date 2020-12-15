@@ -12,7 +12,7 @@ stty -ixon                                     # Set forward searching
 # File loading (Order matters) :ARCANE:
 for file in `cat <&10`; do
   [ -f ~/.bash_${file} ] && . ~/.bash_${file}
-done 10<<< "exports aliases prompt functions independent"
+done 10<<< "exports aliases prompt functions local"
 
 # Git configuration
 if [[ -z "$(git config --get user.name)" || -z "$(git config --get user.email)" ]]; then
