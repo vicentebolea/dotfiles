@@ -31,10 +31,10 @@ $ sudo apt-get install git
 $ git clone --recursive https://github.com/vicentebolea/dotfiles.git .dotfiles && cd .dotfiles && ./bin/dfm install && vim -c 'PluginUpdate'
 ```
 
-### Personal costumization
+### Personal customization
 
 __The only configuration needed for vicente's dotfiles__ should be inside of a file 
-called `.bash_independent` in your home directory. 
+called `.bash_local` in your home directory. 
 
 The file should contain these lines, but change my name and email for yours:
 
