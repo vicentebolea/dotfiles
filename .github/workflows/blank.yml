@@ -16,7 +16,7 @@ jobs:
         submodules: recursive
 
     - name: Install dotfiles
-      run: bash -c 'bin/dfm install && source ~/.bashrc'
+      run: bash -c './.res/dfm install && source ~/.bashrc'
       env:
         SHELL: bash
 
