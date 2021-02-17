@@ -1,12 +1,13 @@
 # Vicente's dotfiles [![CI](https://github.com/vicentebolea/dotfiles/workflows/CI/badge.svg)](https://github.com/vicentebolea/dotfiles/actions?query=workflow%3ACI) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/vicentebolea/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) <a href='https://ko-fi.com/A0A5XV77' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
-![Alt Text](https://raw.github.com/vicentebolea/dotfiles/master/screenshot.gif "My personal configuration for the Linux terminal with 256 colors")
+![Alt Text](https://raw.github.com/vicentebolea/dotfiles/master/.res/screenshot.gif "My personal configuration for the Linux terminal with 256 colors")
 
 ## TL;DR
 __ONE LINER__ install with this single command:
+
 ```sh
 git clone --recursive https://github.com/vicentebolea/dotfiles.git .dotfiles \
-    && cd .dotfiles && ./bin/dfm install && vim +PluginUpdate
+    && cd .dotfiles && ./.res/dfm install && vim +PluginUpdate
 ```
 
 ### Features:
@@ -28,7 +29,7 @@ git clone --recursive https://github.com/vicentebolea/dotfiles.git .dotfiles \
 $ sudo apt-get install git
 
 # Then, clone the repository and install the dotfiles:
-$ git clone --recursive https://github.com/vicentebolea/dotfiles.git .dotfiles && cd .dotfiles && ./bin/dfm install && vim -c 'PluginUpdate'
+$ git clone --recursive https://github.com/vicentebolea/dotfiles.git .dotfiles && cd .dotfiles && ./.res/dfm install && vim -c 'PluginUpdate'
 ```
 
 ### Personal customization
