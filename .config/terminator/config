@@ -40,7 +40,7 @@
     background_color = "#002b36"
     cursor_color = "#8f5902"
     cursor_color_fg = False
-    font = Source Code Pro Semi-Bold 13
+    font = Source Code Pro Semi-Bold 11
     foreground_color = "#839496"
     show_titlebar = False
     scrollbar_position = hidden

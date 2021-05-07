@@ -4,6 +4,7 @@
 "  - It requires to have the following env variables:
 "    1. $CLANG_COMPLETE_LIB
 "    2. $GIT_AUTHOR_NAME
+
 " Bundle {{{
 set nocp
 
@@ -215,13 +216,12 @@ let g:snips_author = $GIT_AUTHOR_NAME
 set diffopt+=vertical
 " }}}
 " CtrlP {{{
-"let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix']
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_extensions = ['tag', 'quickfix']
 " }}}
 " Local Config {{{
 if filereadable($HOME . "/.vimrc.local")
   source $HOME/.vimrc.local
 endif
 " }}}
-
-let g:vimwiki_list = [{ 'path' : "/home/vicente/Documents/Notes/" }]
+let g:vimwiki_list = [{ 'path' : $HOME . "/Documents/Notes/" }]
