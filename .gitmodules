@@ -5,7 +5,6 @@
 [submodule ".vim/pack/dist/start/vim-fugitive"]
 	path = .vim/pack/dist/start/vim-fugitive
 	url = http://github.com/tpope/vim-fugitive.git
-	branch = master
 [submodule ".vim/pack/dist/start/vim-endwise"]
 	path = .vim/pack/dist/start/vim-endwise
 	url = http://github.com/tpope/vim-endwise.git
