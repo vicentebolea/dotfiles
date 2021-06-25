@@ -7,7 +7,7 @@ __ONE LINER__ install with this single command:
 
 ```sh
 git clone --recursive https://github.com/vicentebolea/dotfiles.git .dotfiles \
-    && cd .dotfiles && ./.res/dfm install && vim +PluginUpdate
+    && cd .dotfiles && DFM_REPO=$(pwd) .res/dfm install
 ```
 
 ### Features:
