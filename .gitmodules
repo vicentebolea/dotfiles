@@ -29,6 +29,10 @@
 	path = .vim/pack/dist/start/ultisnips
 	url = http://github.com/Sirver/ultisnips
 	branch = master
+[submodule ".vim/pack/dist/start/vim-snippets"]
+	path = .vim/pack/dist/start/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+	branch = master
 [submodule ".vim/pack/dist/start/clang_complete"]
 	path = .vim/pack/dist/start/clang_complete
 	url = http://github.com/Rip-Rip/clang_complete

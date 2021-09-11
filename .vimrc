@@ -4,6 +4,15 @@
 "  - It requires to have the following env variables:
 "    1. $CLANG_COMPLETE_LIB
 "    2. $GIT_AUTHOR_NAME
+"
+" Quick Predefined leader Maps
+" ============================
+"
+" [a] -> :A
+" [s] -> :Git
+" [d] -> :Gdiff
+" [t] -> :tabnew
+" [T] -> :tabdel
 
 " Bundle {{{
 set nocp
@@ -26,7 +35,7 @@ endif
 " The matchit plugin makes the % command better, but it is not backwards compatible.
 if v:version >= 800 && has('syntax') && has('eval')
   packadd matchit
-  packadd shellmenu 
+  packadd shellmenu
 endif
 
 " This is VIM we don't need arrow keys
@@ -65,7 +74,7 @@ set wildignore=*.o,*.class,*.pyc
 set path+=**
 set hidden  " Useful feature, to have multiples buffer open
 set mouse=a
-set cursorline
+"set cursorline
 match Error /{{{\|}}}/
 set exrc
 
@@ -107,7 +116,7 @@ augroup tabsPolicy
 augroup end
 
 highlight BadWhitespace ctermbg=red guibg=darkred
-autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+autocmd BufRead,BufNewFile * match BadWhitespace /\s\+$/
 " }}}
 " Gvim {{{
 if has('gui_running')
@@ -162,7 +171,6 @@ endtry
 "Customized shortcuts
 nnoremap <silent><leader>a :A<CR>
 nnoremap <silent><leader>d :Gdiff<CR>
-nnoremap <silent><leader>g :Git<CR>:10wincmd_<CR>
 nnoremap <silent><leader>T :tabclose<CR>
 nnoremap <silent><leader>t :tabnew<CR>
 
@@ -221,7 +229,7 @@ let g:ctrlp_extensions = ['tag', 'quickfix']
 " }}}
 " Local Config {{{
 if filereadable($HOME . "/.vimrc.local")
+  autocmd BufLeave .vimrc.local normal! mV
   source $HOME/.vimrc.local
 endif
-" }}}
-let g:vimwiki_list = [{ 'path' : $HOME . "/Documents/Notes/" }]
+"z }}}
