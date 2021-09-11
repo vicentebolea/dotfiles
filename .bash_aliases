@@ -36,7 +36,6 @@ alias uac='update-alternatives --config '
 
 #Add git -> g alias and enable complete for it
 alias g='git status'
-alias gh='hub'
 complete -o default -o nospace -F _git g
 
 function _git_t {
@@ -48,5 +47,6 @@ function ip-local {
 
 alias dirs='dirs -v'
 alias dmesg='dmesg -HTw'
+export GH_BROWSER="gtk-launch firefox"
 
 # vim: ft=sh :

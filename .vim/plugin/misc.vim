@@ -6,8 +6,6 @@ func! DeleteTrailingsWS()
   %s/\s\+$//ge
   execute "normal! 'z"
 endfunc
-
-command DeleteTrailingsWS :call ToggleGStatus()
 " }}}
 " CPPMethodDefinition {{{
 func! CPPMethodDefinition()
@@ -24,7 +22,7 @@ func! CPPMethodDefinition()
 
   if len(output) < 3
     echom "The function looks odd for me"
-    return 
+    return
   endif
 
   let f_return =  output[1]
@@ -38,7 +36,7 @@ func! CPPMethodDefinition()
   execute "normal! jo}\<ESC>o// }}}"
 endfunc
 " }}}
-" ToggleHomeZero {{{
+" TogleHomeZero {{{
 function! ToggleHomeZero()
   let pos = getpos('.')
   execute "normal! ^"
@@ -46,21 +44,20 @@ function! ToggleHomeZero()
     execute "normal! 0"
   endif
 endfunction
-
-nnoremap <silent> 0 :call ToggleHomeZero()<CR>
 " }}}
-" ToggleGStatus {{{{
+" ToggleGStatus {{{
 function! ToggleGStatus()
     if buflisted(bufname('.git/index'))
         bd .git/index
     else
-        Git
+        Git | 12wincmd_
     endif
 endfunction
+" }}}
 
-command ToggleGStatus :call ToggleGStatus()
-" }}}}
+command RemoveTWS :call DeleteTrailingsWS
+command GStatusToggle :call ToggleGStatus()
 
-nnoremap <silent> <leader>s :ToggleGStatus<CR>
 nnoremap <silent>0 :call ToggleHomeZero()<CR>
+nnoremap <silent><leader>s :GStatusToggle<CR>
 nnoremap <silent><Leader>c :call CPPMethodDefinition()<CR>
