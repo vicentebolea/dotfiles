@@ -1,7 +1,7 @@
 [include]
   path = ~/.gitconfig.local
-[core] 
-  editor = vim 
+[core]
+  editor = vim
 	excludesfile = /home/vicente/.gitignore
 	pager = less -F -X
 [color]
@@ -21,7 +21,7 @@
   changed = yellow bold
   untracked = red bold
 [diff]
-  tool = vimdiff 
+  tool = vimdiff
 [merge]
   tool = vimdiff
   log = true
@@ -192,7 +192,7 @@
   subrepo = !sh -c 'filter-branch --prune-empty --subdirectory-filter $1 master' -
   human = name-rev --name-only --refs=refs/heads/*
   serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
-  snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}" 
+  snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
 ############
   rebi = "!r() { git rebase -i HEAD~$1; }; r"
   cu = "!f() { git add -u && git cm \"$1\"; }; f"
@@ -201,7 +201,7 @@
     branchName=$(git rev-parse --abbrev-ref HEAD 2> /dev/null) &&  \
     git checkout $1 &&                                             \
     git merge $branchName;                                         \
-    }; f" 
+    }; f"
   t = "!bash -c '_git_tags_pretty_printer'"
   sign = commit -S --amend --no-edit
   ups = commit --amend -a --reset-author --no-edit
