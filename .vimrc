@@ -138,8 +138,6 @@ if empty($CLANG_COMPLETE_LIB)
   let g:clang_complete_loaded = 1
 endif
 
-let g:clang_complete_loaded = 0
-
 let g:clang_library_path    = $CLANG_COMPLETE_LIB
 let g:clang_auto_select     = 1
 let g:clang_complete_auto   = 0
@@ -215,7 +213,7 @@ let g:NERDTreeDirArrows = 0
 let g:UltiSnipsExpandTrigger        = "<C-j>"
 let g:UltiSnipsJumpForwardTrigger   = "<C-k>"
 let g:UltiSnipsJumpBackwardTrigger  = "<C-M-k>"
-let g:SuperTabDefaultCompletionType = "<C-n>"
+let g:SuperTabDefaultCompletionType = "<C-P>"
 "}}}
 " Signature {{{
 let g:snips_author = $GIT_AUTHOR_NAME
@@ -226,6 +224,10 @@ set diffopt+=vertical
 " CtrlP {{{
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_extensions = ['tag', 'quickfix']
+let g:ctrlp_by_filename = 1
+let g:ctrlp_by_filename = 1
+let g:ctrlp_mruf_relative = 1
+let g:ctrlp_working_path_mode = ''
 " }}}
 " Local Config {{{
 if filereadable($HOME . "/.vimrc.local")

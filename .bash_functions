@@ -1,14 +1,14 @@
 ## vim: ft=sh :
 
-function help_dotfiles 
+function help_dotfiles
 {
 echo \
 "
 Prompt cheatsheet:
 =================
-  - [${green}+${reset}]: Uncomitted changes 
-  - [${green}!${reset}]: Unstaged changes 
-  - [${green}\$${reset}]: check for stashed files 
+  - [${green}+${reset}]: Uncomitted changes
+  - [${green}!${reset}]: Unstaged changes
+  - [${green}\$${reset}]: check for stashed files
 
 Readline shortcuts:
 ===================
@@ -21,8 +21,8 @@ Readline shortcuts:
 "
 }
 
-function pretty-path { 
-  echo -e ${PATH//:/\\n} 
+function pretty-path {
+  echo -e ${PATH//:/\\n}
 }
 
 bind '"\C-h":"help_dotfiles\n"'
