@@ -7,7 +7,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-16.04, ubuntu-18.04]
+        os: [ubuntu-20.04, ubuntu-18.04]
 
     steps:
     - name: Git clone
@@ -20,10 +20,6 @@ jobs:
       env:
         SHELL: bash
 
-    - name: Install vim plugins
-      if: matrix.os == 'ubuntu-16.04'
-      run: timeout 60 vim -cmd 'redir > ~/vim_err.log' -c 'silent! PluginUpdate' -c 'redir END' -c 'qa!'
-
     - name: Smoke test vim
       run: timeout 5 vim -cmd 'redir! > ~/vim_err.log' -c 'redir END | qa!'
 
@@ -33,5 +29,5 @@ jobs:
     - name: Check Output 1
       run: bash -c 'test -e ~/vim_err.log && ! grep -P "^E\d*:" ~/vim_err.log; true'
 
-    - name: Check Output 
+    - name: Check Output
       run: bash -c 'test -e ~/vim_err.log && ! grep -iP "^Error" ~/vim_err.log; true'
