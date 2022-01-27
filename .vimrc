@@ -222,16 +222,16 @@ let g:snips_author = $GIT_AUTHOR_NAME
 set diffopt+=vertical
 " }}}
 " CtrlP {{{
+let g:ctrlp_by_filename = 1
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_extensions = ['tag', 'quickfix']
-let g:ctrlp_by_filename = 1
-let g:ctrlp_by_filename = 1
 let g:ctrlp_mruf_relative = 1
-let g:ctrlp_working_path_mode = ''
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_working_path_mode = 'ra'
 " }}}
 " Local Config {{{
 if filereadable($HOME . "/.vimrc.local")
   autocmd BufLeave .vimrc.local normal! mV
   source $HOME/.vimrc.local
 endif
-"z }}}
+" }}}
