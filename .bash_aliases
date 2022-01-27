@@ -48,4 +48,6 @@ alias dirs='dirs -v'
 alias dmesg='dmesg -HTw'
 export GH_BROWSER="gtk-launch firefox"
 
+alias rfind='find . -regextype posix-extended -iregex'
+
 # vim: ft=sh :
