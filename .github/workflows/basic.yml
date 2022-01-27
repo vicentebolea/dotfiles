@@ -1,9 +1,9 @@
-name: CI
+name: Basic tests
 
 on: [push]
 
 jobs:
-  build:
+  smoke-test:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -21,7 +21,7 @@ jobs:
         SHELL: bash
 
     - name: Smoke test vim
-      run: timeout 5 vim -cmd 'redir! > ~/vim_err.log' -c 'redir END | qa!'
+      run: timeout 5 vim -c 'redir! > ~/vim_err.log' -c 'redir END | qa!'
 
     - name: Print Output
       run: bash -c 'test -e ~/vim_err.log && cat ~/vim_err.log; true'
