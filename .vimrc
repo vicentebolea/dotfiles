@@ -262,6 +262,7 @@ let g:ctrlp_extensions = ['tag', 'quickfix']
 let g:ctrlp_mruf_relative = 1
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_clear_cache_on_exit = 0
 " }}}
 " Local Config {{{
 if filereadable($HOME . "/.vimrc.local")
