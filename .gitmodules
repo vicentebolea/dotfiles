@@ -62,7 +62,3 @@
 	path = .vim/pack/dist/start/a.vim
 	url = https://github.com/vim-scripts/a.vim.git
 	branch = master
-[submodule ".vim/pack/dist/start/vimwiki"]
-	path = .vim/pack/dist/start/vimwiki
-	url = https://github.com/vimwiki/vimwiki.git
-	branch = master
