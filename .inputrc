@@ -1,4 +1,9 @@
+set bell-style visible
+set colored-stats On
+set completion-ignore-case On
 set editing-mode vi
+set horizontal-scroll-mode Off
+set menu-complete-display-prefix On
 
 # Edit options before rerunning previous command, eg: ls a b c -> ls -al a b c
 set keymap vi-insert
