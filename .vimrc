@@ -137,9 +137,12 @@ endif
 autocmd FileType html setlocal sw=2 ts=2 noexpandtab autoindent
 autocmd FileType Makefile setlocal sw=2 ts=2 noexpandtab
 autocmd FileType java setlocal sw=4 ts=4 expandtab
-autocmd FileType Python setlocal sw=2 ts=2 expandtab
+autocmd FileType sh,bash,csh setlocal makeprg=shellcheck\ %
 
-autocmd FileType html,markdown,rst,txt,tex setlocal textwidth=80 colorcolumn=81 spell
+" PEP8 compliant
+autocmd! FileType python setlocal sw=4 ts=4 sts=4 expandtab textwidth=79 autoindent makeprg=flake8\ %
+
+autocmd FileType html,markdown,rst,txt,tex setlocal textwidth=79 colorcolumn=81 spell
 autocmd BufEnter,BufNew *.log setlocal nowrap
 
 augroup tabsPolicy
@@ -216,6 +219,7 @@ ab WQ wq
 ab Q q
 ab WQA wqa
 ab Wqa wqa
+ab E e
 "}}}
 "vim-airline {{{
 let g:airline_left_sep=''
