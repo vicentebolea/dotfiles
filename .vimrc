@@ -192,7 +192,7 @@ nnoremap Q <Nop>
 nnoremap <silent> <F2> :tabprevious<Enter>
 nnoremap <silent> <F3> :tabnext<Enter>
 nnoremap <silent> <F4> :tabnew<Enter>
-nnoremap <silent> <F5> :!ctags -f .tags -R -Q **/*.c **/*.cpp **/*.h<Enter>
+nnoremap <silent> <F5> :make
 nnoremap <silent> <F8> :TagbarToggle<Enter>
 nnoremap <silent> <F9> :NERDTreeToggle<Enter>
 try
