@@ -140,7 +140,10 @@ autocmd FileType java setlocal sw=4 ts=4 expandtab
 autocmd FileType sh,bash,csh setlocal makeprg=shellcheck\ %
 
 " PEP8 compliant
-autocmd! FileType python setlocal sw=4 ts=4 sts=4 expandtab textwidth=79 autoindent makeprg=flake8\ %
+autocmd! FileType python setlocal sw=4 ts=4 sts=4 expandtab textwidth=100 fileformat=unix autoindent makeprg=flake8\ %
+
+autocmd! FileType typescript setlocal makeprg=npx\ eslint\ -f\ unix\ %
+autocmd! FileType vue setlocal makeprg=npx\ eslint\ -f\ unix\ %
 
 autocmd! FileType typescript setlocal makeprg=npx\ eslint\ -f\ unix\ %
 autocmd! FileType vue setlocal makeprg=npx\ eslint\ -f\ unix\ %
@@ -159,7 +162,7 @@ highlight BadWhitespace ctermbg=red guibg=darkred
 autocmd BufRead,BufNewFile * match BadWhitespace /\s\+$/
 
 " Disable Copilot by default
-au BufNewFile,BufRead * Copilot disable
+au BufNewFile,BufRead * :Copilot disable
 
 " }}}
 " Gvim {{{
@@ -206,7 +209,7 @@ nnoremap <silent> <F5> :make
 nnoremap <silent> <F8> :TagbarToggle<Enter>
 nnoremap <silent> <F9> :NERDTreeToggle<Enter>
 try
-call togglebg#map("<F7>")
+  call togglebg#map("<F7>")
 catch
 endtry
 
@@ -233,6 +236,9 @@ ab Q q
 ab WQA wqa
 ab Wqa wqa
 ab E e
+ab Copen copen
+ab Cclose cclose
+
 "}}}
 "vim-airline {{{
 let g:airline_left_sep=''
