@@ -4,6 +4,7 @@
   editor = vim
 	excludesfile = /home/vicente/.gitignore
 	pager = less -F -X
+	autocrlf = input
 [color]
   ui = auto
 [color "branch"]
