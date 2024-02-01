@@ -142,6 +142,9 @@ autocmd FileType sh,bash,csh setlocal makeprg=shellcheck\ %
 " PEP8 compliant
 autocmd! FileType python setlocal sw=4 ts=4 sts=4 expandtab textwidth=79 autoindent makeprg=flake8\ %
 
+autocmd! FileType typescript setlocal makeprg=npx\ eslint\ -f\ unix\ %
+autocmd! FileType vue setlocal makeprg=npx\ eslint\ -f\ unix\ %
+
 autocmd FileType html,markdown,rst,txt,tex setlocal textwidth=79 colorcolumn=81 spell
 autocmd BufEnter,BufNew *.log setlocal nowrap
 
@@ -154,6 +157,10 @@ augroup end
 
 highlight BadWhitespace ctermbg=red guibg=darkred
 autocmd BufRead,BufNewFile * match BadWhitespace /\s\+$/
+
+" Disable Copilot by default
+au BufNewFile,BufRead * Copilot disable
+
 " }}}
 " Gvim {{{
 if has('gui_running')
@@ -202,6 +209,12 @@ try
 call togglebg#map("<F7>")
 catch
 endtry
+
+"Copilot
+imap <C-Down> <Plug>(copilot-dismiss)
+imap <C-Right> <Plug>(copilot-next)
+imap <C-Left> <Plug>(copilot-previous)
+imap <C-Up> <Plug>(copilot-suggest)
 
 "Customized shortcuts
 nnoremap <silent><leader>a :A<CR>

@@ -65,3 +65,6 @@
 	path = .vim/pack/dist/start/cmake-presets-vim
 	url = https://github.com/vicentebolea/cmake-presets-vim.git
 	branch = master
+[submodule ".vim/pack/github/start/copilot.vim"]
+	path = .vim/pack/github/start/copilot.vim
+	url = https://github.com/github/copilot.vim.git
