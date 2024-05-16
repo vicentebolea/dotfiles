@@ -2,7 +2,7 @@
   path = ~/.gitconfig.local
 [core]
   editor = vim
-	excludesfile = /home/vicente/.gitignore
+	excludesfile = ~/.gitignore
 	pager = less -F -X
 	autocrlf = input
 [color]

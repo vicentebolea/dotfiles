@@ -37,6 +37,8 @@ alias uac='update-alternatives --config '
 alias g='git status'
 complete -o default -o nospace -F _git g
 
+alias gh='PAGER= gh'
+
 function _git_t {
   __gitcomp "$(git tag -l)";
 }
