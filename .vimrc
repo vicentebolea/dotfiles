@@ -162,7 +162,7 @@ highlight BadWhitespace ctermbg=red guibg=darkred
 autocmd BufRead,BufNewFile * match BadWhitespace /\s\+$/
 
 " Disable Copilot by default
-au BufNewFile,BufRead * :Copilot disable
+au BufNewFile,BufRead * Copilot disable
 
 " }}}
 " Gvim {{{
