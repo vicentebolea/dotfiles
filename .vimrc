@@ -142,14 +142,17 @@ autocmd FileType sh,bash,csh setlocal makeprg=shellcheck\ %
 " PEP8 compliant
 autocmd! FileType python setlocal sw=4 ts=4 sts=4 expandtab textwidth=100 fileformat=unix autoindent makeprg=flake8\ %
 
+" Vue development
 autocmd! FileType typescript setlocal makeprg=npx\ eslint\ -f\ unix\ %
 autocmd! FileType vue setlocal makeprg=npx\ eslint\ -f\ unix\ %
 
-autocmd! FileType typescript setlocal makeprg=npx\ eslint\ -f\ unix\ %
-autocmd! FileType vue setlocal makeprg=npx\ eslint\ -f\ unix\ %
-
-autocmd FileType html,markdown,rst,txt,tex setlocal textwidth=79 colorcolumn=81 spell
+" Technical writting
+autocmd FileType html,markdown,rst,txt,tex setlocal textwidth=79 colorcolumn=80 spell
 autocmd BufEnter,BufNew *.log setlocal nowrap
+
+" Spec development
+autocmd FileType spec setlocal makeprg=spec-cleaner\ -i\ %
+autocmd FileType changes setlocal textwidth=67 colorcolumn=67 spell
 
 augroup tabsPolicy
   autocmd!
@@ -280,12 +283,12 @@ set diffopt+=vertical
 " }}}
 " CtrlP {{{
 let g:ctrlp_by_filename = 1
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_extensions = ['tag', 'quickfix']
 let g:ctrlp_mruf_relative = 1
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_mruf_case_sensitive = 0
 let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_cmd = 'CtrlPMixed'
 " }}}
 " Local Config {{{
 if filereadable($HOME . "/.vimrc.local")
