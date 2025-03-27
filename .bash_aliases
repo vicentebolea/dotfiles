@@ -36,21 +36,19 @@ alias uac='update-alternatives --config '
 #Add git -> g alias and enable complete for it
 alias g='git status'
 complete -o default -o nospace -F _git g
-
 alias gh='PAGER= gh'
 
-function _git_t {
-  __gitcomp "$(git tag -l)";
-}
 function ip-local {
   ip addr | grep -Po '(?!(inet 127.\d.\d.1))(inet \K(\d{1,3}\.){3}\d{1,3})'
 }
 
 alias dirs='dirs -v'
 alias dmesg='dmesg -HTw'
-export GH_BROWSER="gtk-launch firefox"
 
 alias rfind='find . -regextype posix-extended -iregex'
 alias xcopy='xcopy -selection c'
+
+alias lszip='unzip -lvM'      # View contents of ZIP file
+alias lstgz='tar -tvzf'     # View contents of tar.gz file
 
 # vim: ft=sh :

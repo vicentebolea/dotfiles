@@ -283,12 +283,18 @@ set diffopt+=vertical
 " }}}
 " CtrlP {{{
 let g:ctrlp_by_filename = 1
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_mruf_case_sensitive = 0
+let g:ctrlp_mruf_max = 500
 let g:ctrlp_mruf_relative = 1
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_mruf_case_sensitive = 0
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/]\.(git|hg|svn|osc)$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ }
+
 " }}}
 " Local Config {{{
 if filereadable($HOME . "/.vimrc.local")

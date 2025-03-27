@@ -10,9 +10,10 @@ if [[ "$TERM" =~ .*256color && -e "$HOME/.dircolors.256dark" ]]; then
 fi
 
 export EDITOR=vim
-export HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoreboth:erasedups
 # 16 KiL
 export HISTSIZE="$(bc <<<'2^14')"
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export GH_BROWSER="gtk-launch firefox"
 # vim: ft=sh :

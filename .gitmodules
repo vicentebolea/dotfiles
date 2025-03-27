@@ -69,3 +69,6 @@
 	path = .vim/pack/github/start/copilot.vim
 	url = https://github.com/github/copilot.vim.git
   branch = release
+[submodule ".vim/pack/dist/start/vim-easy-align"]
+	path = .vim/pack/dist/start/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
