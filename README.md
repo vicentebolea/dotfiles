@@ -1,4 +1,4 @@
-# Vicente's dotfiles [![Basic tests](https://github.com/vicentebolea/dotfiles/actions/workflows/basic.yml/badge.svg)](https://github.com/vicentebolea/dotfiles/actions/workflows/basic.yml) <a href='https://ko-fi.com/A0A5XV77' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+# Vicente's dotfiles [![Basic tests](https://github.com/vicentebolea/dotfiles/actions/workflows/basic.yml/badge.svg)](https://github.com/vicentebolea/dotfiles/actions/workflows/basic.yml)
 
 ![Alt Text](https://raw.github.com/vicentebolea/dotfiles/master/.res/screenshot.gif "My personal configuration for the Linux terminal with 256 colors")
 
@@ -26,7 +26,7 @@ git clone --recursive https://github.com/vicentebolea/dotfiles.git .dotfiles \
     
 ```sh
 # First, make sure you have git installed, if not run the next command if you are in ubuntu:
-$ sudo apt-get install git
+$ sudo apt install git
 
 # Then, clone the repository and install the dotfiles:
 $ git clone --recursive https://github.com/vicentebolea/dotfiles.git .dotfiles && cd .dotfiles && ./.res/dfm install && vim -c 'PluginUpdate'
@@ -46,7 +46,7 @@ GIT_AUTHOR_EMAIL="vicenolea@gmail.com"
 # Also, in order to enable C++ autocomplete features you must install libclang-dev,
 # in ubuntu it would be:
   
-$ sudo apt-get install libclang-dev
+$ sudo apt install libclang-dev
 
 # After that you must indicate the location of the library in the .bash_independent file
 export CLANG_COMPLETE_LIB="/usr/lib/path_to_libclang.so..."
@@ -61,10 +61,6 @@ $ cd ~/.dotfiles && git fetch --all && git reset --hard origin/master
 
 # This will not delete the .bash_independent file.
 ```
-## If you enjoy this, please get me a coffee
-
-<a href='https://ko-fi.com/A0A5XV77' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
-
 ## Authors
  - [Vicente Adolfo Bolea Sanchez][vicente].
 

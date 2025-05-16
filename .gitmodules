@@ -72,3 +72,6 @@
 [submodule ".vim/pack/dist/start/vim-easy-align"]
 	path = .vim/pack/dist/start/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
+[submodule ".vim/pack/tpope/start/vim-sensible"]
+	path = .vim/pack/tpope/start/vim-sensible
+	url = https://github.com/tpope/vim-sensible.git
