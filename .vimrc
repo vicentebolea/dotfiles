@@ -51,20 +51,16 @@
 " Bundle {{{
 set nocp
 
-" Legacy options for version before Vim 8
-let b:legacy_file = $HOME . "/.vimrc.legacy"
-if filereadable(b:legacy_file)
-  execute "source" . b:legacy_file
+" For Vim <= 8, load the legacy configuration which already includes these plugins via Vundle
+if v:version < 800
+  let b:legacy_file = $HOME . "/.vimrc.legacy"
+  if filereadable(b:legacy_file)
+    execute "source" . b:legacy_file
+  endif
 endif
 
 " }}}
 " Essentials {{{
-" We drink from the defaults of vim
-if filereadable($VIMRUNTIME . "/defaults.vim")
-  source $VIMRUNTIME/defaults.vim
-else
-  set incsearch showcmd wildmenu
-endif
 
 " The matchit plugin makes the % command better, but it is not backwards compatible.
 if v:version >= 800 && has('syntax') && has('eval')
