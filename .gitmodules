@@ -34,10 +34,6 @@
 	path = .vim/pack/dist/start/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
 	branch = master
-[submodule ".vim/pack/dist/start/clang_complete"]
-	path = .vim/pack/dist/start/clang_complete
-	url = http://github.com/Rip-Rip/clang_complete
-	branch = master
 [submodule ".vim/pack/dist/start/vim-colors-solarized"]
 	path = .vim/pack/dist/start/vim-colors-solarized
 	url = http://github.com/altercation/vim-colors-solarized.git
@@ -58,9 +54,6 @@
 	path = .vim/pack/dist/start/a.vim
 	url = https://github.com/vim-scripts/a.vim.git
 	branch = master
-[submodule ".vim/pack/dist/start/vim-dispatch"]
-	path = .vim/pack/dist/start/vim-dispatch
-	url = https://github.com/tpope/vim-dispatch.git
 [submodule ".vim/pack/dist/start/cmake-presets-vim"]
 	path = .vim/pack/dist/start/cmake-presets-vim
 	url = https://github.com/vicentebolea/cmake-presets-vim.git
