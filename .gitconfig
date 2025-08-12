@@ -27,9 +27,8 @@
   tool = vimdiff
   log = true
 [push]
-  default = current
-[url "http://bitbucket.org/"]
-  insteadOf = bb:
+  default = simple
+  autoSetupRemote = true
 [url "git@github.com:"]
   insteadOf = gh:
 [url "git@gitlab.kitware.com:"]
@@ -205,5 +204,17 @@
   branch = false
 [gpg]
 	format = ssh
+[init]
+  defaultBranch = main
+[pull]
+  rebase = true
+[fetch]
+  prune = true
+[transfer]
+  fsckObjects = true
+[receive]
+  fsckObjects = true
 [submodule]
-	recurse = true
+  recurse = true
+[branch]
+  autoSetupRebase = always
