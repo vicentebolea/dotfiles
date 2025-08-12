@@ -17,10 +17,20 @@ git clone --recursive https://github.com/vicentebolea/dotfiles.git .dotfiles \
  - BASH configuration with a cool prompt and a separated file structure to ease distributing your configuratiom accross different machines.
  - VIM configuration and selection of Plugins focussed in C/C++ development.
  - GDB configuration which support C++ standard library data strutures and more fancy things.
- - SCREEN & TMUX configuration to make it more fancy and to support 256 colors with vim.
+ - SCREEN & TMUX configuration to make it more fancy and to support 256 colors with vim. (Requires tmux 2.1+)
  - GIT configuration with several shortcuts, extra tools and many colors.
  - Few extras such as fonts and dircolors.
  - More..
+
+## Requirements
+
+| Software | Minimum Version | Notes |
+|----------|----------------|-------|
+| git | 2.20+ | Core dependency |
+| bash | 4.0+ | Shell configuration |
+| vim | 8.0+ | Editor configuration and plugins |
+| tmux | 2.1+ | Terminal multiplexer features |
+| gdb | 7.0+ | Modern pretty printers |
 
 ## Install it
     
