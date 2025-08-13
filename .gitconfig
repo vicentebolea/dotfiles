@@ -31,168 +31,25 @@
   autoSetupRemote = true
 [url "git@github.com:"]
   insteadOf = gh:
-[url "git@gitlab.kitware.com:"]
-  insteadOf = kw:
 [url "https://gist.github.com/"]
   insteadOf = gist:
 [alias]
-  a = add --all
-  ai = add -i
-#############
-  ap = apply
-  as = apply --stat
-  ac = apply --check
-#############
-  ama = am --abort
-  amr = am --resolved
-  ams = am --skip
-#############
-  b = branch
-  ba = branch -a
-  bd = branch -d
-  br = branch -r
-#############
   c = commit
-  ca = commit -a
-  cm = commit -m
-  cem = commit --allow-empty -m
-  cam = commit -am
-  cd = commit --amend
-  cad = commit -a --amend
-  ced = commit --allow-empty --amend
-  commend = commit --amend --no-edit --reset-author -a
-#############
-  d = diff
-  dc = diff --cached
-  dl = difftool
-  dlc = difftool --cached
-  dk = diff --check
-  dp = diff --patience
-  ds = diff --stat
-  dck = diff --cached --check
-#############
-  f = fetch --prune --all
-  fo = fetch origin
-  fu = fetch upstream
-#############
-  fp = format-patch
-#############
-  fk = fsck
-#############
-  g = grep -p
+  co = checkout
+  ls = ls-files
+  s = status --untracked-files=no -s -b
 #############
   l = log --oneline --first-parent --abbrev-commit --decorate
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --all
   lgo = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(bold)%C(magenta)(%an)%Creset' --abbrev-commit --date=relative --remotes=origin
   lm =  log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --merges --first-parent
 #############
-  ls = ls-files
-  lsf = "!git ls-files | grep -i"
-#############
-  m = merge
-  ma = merge --abort
-  mc = merge --continue
-  ms = merge --skip
-#############
-  co = checkout
-  ob = checkout -b
-#############
-  pr = prune -v
-#############
-  ps = push
-  psf = push --force-with-lease
-  psu = push -u
-  pso = push origin
-  psao = push --all origin
-  psfo = push -f origin
-  psuo = push -u origin
-  psom = push origin master
-  psfom = push -f origin master
-  psuom = push -u origin master
-#############
-  pl = pull
-  plu = pull -u
-  plo = pull origin
-  plp = pull upstream
-  plom = pull origin master
-  plpm = pull upstream master
-#############
-  pb = pull --rebase
-  pbo = pull --rebase origin
-  pbp = pull --rebase upstream
-  pbom = pull --rebase origin master
-  pbpm = pull --rebase upstream master
-#############
-  rb = rebase
-  rba = rebase --abort
-  rbc = rebase --continue
-  rbi = rebase --interactive
-  rbs = rebase --skip
-  rbu = rebase upstream/master
-#############
-  update = reset --hard @{u}
-  re = reset
-  rh = reset HEAD
-  reh = reset --hard
-  rem = reset --mixed
-  res = reset --soft
-  rehh = reset --hard HEAD
-  remh = reset --mixed HEAD
-  resh = reset --soft HEAD
-#############
-  r = remote
-  ra = remote add
-  rr = remote rm
-  rv = remote -v
-  rm = remote rename
-  rp = remote prune
-  rs = remote show
-  rao = remote add origin
-  rau = remote add upstream
-  rso = remote show origin
-  rsu = remote show upstream
-  rpo = remote prune origin
-  rpu = remote prune upstream
-#############
-  ss = status --untracked-files=no -s -b
-  sb = status -s -b
-#############
-  sa = stash apply
-  sc = stash clear
-  sd = stash drop
-  sl = stash list
-  sp = stash pop
-  #ss = stash save
-  sw = stash show
-#############
-  w = show
-  wp = show -p
-  wr = show -p --no-color
-#############
-  svnr = svn rebase
-  svnd = svn dcommit
-  svnl = svn log --oneline --show-commit
-#############
-  assume = update-index --assume-unchanged
-  unassume = update-index --no-assume-unchanged
-  assumed = "!git ls-files -v | grep ^h | cut -c 3-"
-  unassumeall = !git assumed | xargs git update-index --no-assume-unchanged
-  assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
-#############
   ours = "!f() { git checkout --ours $@ && git add $@; }; f"
   theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
 #############
+  update = reset --hard @{u}
   whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
   whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
-#############
-  barebranch = !sh -c 'git symbolic-ref HEAD refs/heads/$1 && git rm --cached -r . && git clean -xfd' -
-  flat = clone --depth 1
-  subpull = !git submodule foreach git pull --tags origin master
-  subrepo = !sh -c 'filter-branch --prune-empty --subdirectory-filter $1 master' -
-  human = name-rev --name-only --refs=refs/heads/*
-  serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
-  snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
-############
   sign = commit -S --amend --no-edit
   rmmerges = "!git branch --merged | grep -Ev '^( |\\*) (master|main|release|dev|develop)$' | xargs git branch -d"
   mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -

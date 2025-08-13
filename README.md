@@ -33,7 +33,7 @@ git clone --recursive https://github.com/vicentebolea/dotfiles.git .dotfiles \
 | gdb | 7.0+ | Modern pretty printers |
 
 ## Install it
-    
+
 ```sh
 # First, make sure you have git installed, if not run the next command if you are in ubuntu:
 $ sudo apt install git
@@ -44,8 +44,8 @@ $ git clone --recursive https://github.com/vicentebolea/dotfiles.git .dotfiles &
 
 ### Personal customization
 
-__The only configuration needed for vicente's dotfiles__ should be inside of a file 
-called `.bash_local` in your home directory. 
+__The only configuration needed for vicente's dotfiles__ should be inside of a file
+called `.bash_local` in your home directory.
 
 The file should contain these lines, but change my name and email for yours:
 
@@ -55,7 +55,7 @@ GIT_AUTHOR_EMAIL="vicenolea@gmail.com"
 
 # Also, in order to enable C++ autocomplete features you must install libclang-dev,
 # in ubuntu it would be:
-  
+
 $ sudo apt install libclang-dev
 
 # After that you must indicate the location of the library in the .bash_independent file
