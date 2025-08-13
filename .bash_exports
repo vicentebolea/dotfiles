@@ -6,13 +6,13 @@ case "$TERM" in
 esac
 
 if [[ "$TERM" =~ .*256color && -e "$HOME/.dircolors.256dark" ]]; then
-  eval `dircolors $HOME/.dircolors.256dark 2> /dev/null`
+  eval "$(dircolors "$HOME/.dircolors.256dark" 2>/dev/null)"
 fi
 
 export EDITOR=vim
 export HISTCONTROL=ignoreboth:erasedups
 # 16 KiL
-export HISTSIZE="$(bc <<<'2^14')"
+export HISTSIZE=16384
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export GH_BROWSER="gtk-launch firefox"

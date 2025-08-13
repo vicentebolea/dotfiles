@@ -48,19 +48,8 @@
 " [t] -> :tabnew
 " [T] -> :tabdel
 
-" Bundle {{{
-set nocp
-
-" For Vim <= 8, load the legacy configuration which already includes these plugins via Vundle
-if v:version < 800
-  let b:legacy_file = $HOME . "/.vimrc.legacy"
-  if filereadable(b:legacy_file)
-    execute "source" . b:legacy_file
-  endif
-endif
-
-" }}}
 " Essentials {{{
+set nocp
 
 " The matchit plugin makes the % command better, but it is not backwards compatible.
 if v:version >= 800 && has('syntax') && has('eval')
@@ -177,7 +166,7 @@ endif
 "Autocomplete  {{{
 set dictionary+=/usr/share/dict/words
 set completeopt=menuone,menu,preview,longest
-
+"}}}
 "Key-binding {{{
 " ---------------------------------------------------------------------
 let mapleader = " "

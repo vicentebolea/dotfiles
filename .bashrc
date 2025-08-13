@@ -2,15 +2,18 @@
 
 shopt -s histappend                            # Add history from all the terminal opened
 shopt -s checkwinsize                          # Keep checking terminal size
-if [ $BASH_VERSINFO -ge 4 ]; then
+if ((BASH_VERSINFO[0] >= 4)); then
   shopt -s globstar                            # ** enabled
   shopt -s autocd                              # Type the directory name and cd it
+  shopt -s dirspell                            # Auto-correct directory name typos
+  shopt -s cdspell                             # Auto-correct cd command typos
+  shopt -s checkjobs                           # Check for running jobs before exit
 fi
 set -o vi                                      # VI mode readline
 stty -ixon                                     # Set forward searching
 
 # File loading (Order matters) :ARCANE:
-for file in `cat <&10`; do
+for file in $(cat <&10); do
   [ -f ~/.bash_${file} ] && . ~/.bash_${file}
 done 10<<< "exports aliases prompt functions local"
 
