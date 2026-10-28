@@ -84,6 +84,7 @@ set belloff=all
 
 " More options
 set hlsearch
+set ignorecase
 set wildignore=*.o,*.class,*.pyc
 set path+=**
 set hidden  " Useful feature, to have multiples buffer open
@@ -256,7 +257,7 @@ let g:ctrlp_mruf_relative = 1
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/]\.(git|hg|svn|osc|venv)$',
+      \ 'dir':  '\v[\/]\.(git|hg|svn|osc|venv|claude)$',
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
 
