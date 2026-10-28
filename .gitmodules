@@ -34,10 +34,6 @@
 	path = .vim/pack/dist/start/a.vim
 	url = https://github.com/vim-scripts/a.vim.git
 	branch = master
-[submodule ".vim/pack/dist/start/cmake-presets-vim"]
-	path = .vim/pack/dist/start/cmake-presets-vim
-	url = https://github.com/vicentebolea/cmake-presets-vim.git
-	branch = master
 [submodule ".vim/pack/github/start/copilot.vim"]
 	path = .vim/pack/github/opt/copilot.vim
 	url = https://github.com/github/copilot.vim.git
@@ -52,3 +48,7 @@
 	path = .vim/pack/dist/start/vim-solarized8
 	url = https://github.com/lifepillar/vim-solarized8.git
 	branch = master
+[submodule ".vim/pack/dist/start/vim-cmake-presets"]
+	path = .vim/pack/dist/start/vim-cmake-presets
+	url = https://github.com/vicentebolea/vim-cmake-presets.git
+	branch = main
