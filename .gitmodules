@@ -22,10 +22,6 @@
 	path = .vim/pack/dist/start/delimitMate
 	url = http://github.com/Raimondi/delimitMate
 	branch = master
-[submodule ".vim/pack/dist/start/vim-colors-solarized"]
-	path = .vim/pack/dist/start/vim-colors-solarized
-	url = http://github.com/altercation/vim-colors-solarized.git
-	branch = master
 [submodule ".vim/pack/dist/start/ctrlp.vim"]
 	path = .vim/pack/dist/start/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
@@ -52,3 +48,7 @@
 [submodule ".vim/pack/tpope/start/vim-sensible"]
 	path = .vim/pack/tpope/start/vim-sensible
 	url = https://github.com/tpope/vim-sensible.git
+[submodule ".vim/pack/dist/start/vim-solarized8"]
+	path = .vim/pack/dist/start/vim-solarized8
+	url = https://github.com/lifepillar/vim-solarized8.git
+	branch = master
