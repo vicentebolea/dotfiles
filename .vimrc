@@ -36,8 +36,7 @@
 "
 " Requirements:
 "  - It requires to have the following env variables:
-"    1. $CLANG_COMPLETE_LIB
-"    2. $GIT_AUTHOR_NAME
+"    1. $GIT_AUTHOR_NAME
 "
 " Quick Predefined leader Maps
 " ============================
@@ -50,12 +49,12 @@
 
 " Essentials {{{
 set nocp
+filetype plugin indent on
+syntax on
 
 " The matchit plugin makes the % command better, but it is not backwards compatible.
-if v:version >= 800 && has('syntax') && has('eval')
-  packadd matchit
-  packadd shellmenu
-endif
+packadd matchit
+packadd shellmenu
 
 " This is VIM we don't need arrow keys
 noremap   <Up>     <NOP>
@@ -65,27 +64,23 @@ noremap   <Right>  <NOP>
 " }}}
 " Interface settings {{{
 "## COLORSCHEME
-set term=screen-256color
 set background=dark
 
 "## BASE16
 try
+  if has('termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  endif
   let g:solarized_contrast = "high"
   colorscheme solarized
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-else
-  hi Folded ctermbg=16
-endif
+  if !has('termguicolors')
+    hi Folded ctermbg=16
+  endif
 catch
 endtry
 
-"Correct broken redraw
-set ttyfast
-set noerrorbells
-set novisualbell
-set lazyredraw
+set belloff=all
 
 " More options
 set hlsearch
@@ -96,6 +91,7 @@ set mouse=a
 "set cursorline
 match Error /{{{\|}}}/
 set exrc
+set secure
 
 "Long wrapped line
 set showbreak=↳\  
@@ -109,27 +105,26 @@ set nowritebackup
 set shiftwidth=2
 set expandtab
 set tabstop=2
-set backspace=2
+set backspace=indent,eol,start
 set foldmethod=marker
 set cino=N-s
-
-if v:version >= 800
-  set breakindent
-endif
+set breakindent
 
 " }}}
 " filetype settings {{{
+augroup vimrc
+autocmd!
 autocmd FileType html setlocal sw=2 ts=2 noexpandtab autoindent
-autocmd FileType Makefile setlocal sw=2 ts=2 noexpandtab
+autocmd FileType make setlocal sw=2 ts=2 noexpandtab
 autocmd FileType java setlocal sw=4 ts=4 expandtab
 autocmd FileType sh,bash,csh setlocal makeprg=shellcheck\ %
 
 " PEP8 compliant
-autocmd! FileType python setlocal sw=4 ts=4 sts=4 expandtab textwidth=100 fileformat=unix autoindent makeprg=flake8\ %
+autocmd FileType python setlocal sw=4 ts=4 sts=4 expandtab textwidth=100 fileformat=unix autoindent makeprg=flake8\ %
 
 " Vue development
-autocmd! FileType typescript setlocal makeprg=npx\ eslint\ -f\ unix\ %
-autocmd! FileType vue setlocal makeprg=npx\ eslint\ -f\ unix\ %
+autocmd FileType typescript setlocal makeprg=npx\ eslint\ -f\ unix\ %
+autocmd FileType vue setlocal makeprg=npx\ eslint\ -f\ unix\ %
 
 " Technical writting
 autocmd FileType html,markdown,rst,txt,tex setlocal textwidth=79 colorcolumn=80 spell
@@ -138,6 +133,7 @@ autocmd BufEnter,BufNew *.log setlocal nowrap
 " Spec development
 autocmd FileType spec setlocal makeprg=spec-cleaner\ -i\ %
 autocmd FileType changes setlocal textwidth=67 colorcolumn=67 spell
+augroup END
 
 augroup tabsPolicy
   autocmd!
@@ -150,7 +146,7 @@ highlight BadWhitespace ctermbg=red guibg=darkred
 autocmd BufRead,BufNewFile * match BadWhitespace /\s\+$/
 
 " Disable Copilot by default
-au BufNewFile,BufRead * Copilot disable
+let g:copilot_enabled = 0
 
 " }}}
 " Gvim {{{
@@ -171,11 +167,6 @@ set completeopt=menuone,menu,preview,longest
 " ---------------------------------------------------------------------
 let mapleader = " "
 
-" This is VIM we don't need arrow keys
-noremap  <Up>     <NOP>
-noremap  <Down>   <NOP>
-noremap  <Left>   <NOP>
-noremap  <Right>  <NOP>
 nnoremap Q <Nop>
 
 " Tabs
@@ -205,16 +196,16 @@ nnoremap <silent><leader>t :tabnew<CR>
 "Great map which saves the file in sudo mode, something like `sudo !!`
 cnoremap w!! w !sudo tee >/dev/null %
 
-ab W w
-ab Wq wq
-ab wQ wq
-ab WQ wq
-ab Q q
-ab WQA wqa
-ab Wqa wqa
-ab E e
-ab Copen copen
-ab Cclose cclose
+cnoreabbrev W w
+cnoreabbrev Wq wq
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev Q q
+cnoreabbrev WQA wqa
+cnoreabbrev Wqa wqa
+cnoreabbrev E e
+cnoreabbrev Copen copen
+cnoreabbrev Cclose cclose
 
 "}}}
 "vim-airline {{{
