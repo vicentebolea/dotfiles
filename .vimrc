@@ -189,12 +189,12 @@ try
   call togglebg#map("<F7>")
 catch
 endtry
-
 "Copilot
-imap <C-Down> <Plug>(copilot-dismiss)
-imap <C-Right> <Plug>(copilot-next)
-imap <C-Left> <Plug>(copilot-previous)
-imap <C-Up> <Plug>(copilot-suggest)
+
+imap <S-Down> <Plug>(copilot-dismiss)
+imap <S-Right> <Plug>(copilot-next)
+imap <S-Left> <Plug>(copilot-previous)
+imap <S-Up> <Plug>(copilot-suggest)
 
 "Customized shortcuts
 nnoremap <silent><leader>a :A<CR>

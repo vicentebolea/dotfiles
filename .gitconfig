@@ -29,11 +29,13 @@
 [push]
   default = simple
   autoSetupRemote = true
+  recurseSubmodules = no
 [url "git@github.com:"]
   insteadOf = gh:
 [url "https://gist.github.com/"]
   insteadOf = gist:
 [alias]
+  b = branch
   c = commit
   co = checkout
   ls = ls-files
