@@ -26,21 +26,9 @@
 	path = .vim/pack/dist/start/delimitMate
 	url = http://github.com/Raimondi/delimitMate
 	branch = master
-[submodule ".vim/pack/dist/start/ultisnips"]
-	path = .vim/pack/dist/start/ultisnips
-	url = http://github.com/Sirver/ultisnips
-	branch = master
-[submodule ".vim/pack/dist/start/vim-snippets"]
-	path = .vim/pack/dist/start/vim-snippets
-	url = https://github.com/honza/vim-snippets.git
-	branch = master
 [submodule ".vim/pack/dist/start/vim-colors-solarized"]
 	path = .vim/pack/dist/start/vim-colors-solarized
 	url = http://github.com/altercation/vim-colors-solarized.git
-	branch = master
-[submodule ".vim/pack/dist/start/SuperTab"]
-	path = .vim/pack/dist/start/SuperTab
-	url = https://github.com/ervandew/supertab.git
 	branch = master
 [submodule ".vim/pack/dist/start/ctrlp.vim"]
 	path = .vim/pack/dist/start/ctrlp.vim

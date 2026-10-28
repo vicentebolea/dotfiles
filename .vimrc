@@ -34,10 +34,6 @@
 " OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 " ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 "
-" Requirements:
-"  - It requires to have the following env variables:
-"    1. $GIT_AUTHOR_NAME
-"
 " Quick Predefined leader Maps
 " ============================
 "
@@ -128,8 +124,6 @@ autocmd FileType changes setlocal textwidth=67 colorcolumn=67 spell
 
 " Tabs policy
 autocmd BufEnter *.tsv setlocal noexpandtab tabstop=6 sw=6
-autocmd BufEnter *.tsv,Makefile,*.make,*.html :let b:SuperTabDisabled=1
-autocmd BufEnter *.tsv,Makefile,*.make,*.html :silent! iunmap <Tab>
 
 " Highlight fold markers and trailing whitespace, once per window
 highlight BadWhitespace ctermbg=red guibg=darkred
@@ -173,7 +167,6 @@ try
 catch
 endtry
 "Copilot
-
 imap <S-Down> <Plug>(copilot-dismiss)
 imap <S-Right> <Plug>(copilot-next)
 imap <S-Left> <Plug>(copilot-previous)
@@ -223,15 +216,6 @@ let g:NERDChristmasTree = 1
 let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeDirArrows = 0
-" }}}
-"SuperTab | utisnipts {{{
-let g:UltiSnipsExpandTrigger        = "<C-j>"
-let g:UltiSnipsJumpForwardTrigger   = "<C-k>"
-let g:UltiSnipsJumpBackwardTrigger  = "<C-M-k>"
-let g:SuperTabDefaultCompletionType = "<C-P>"
-"}}}
-" Signature {{{
-let g:snips_author = $GIT_AUTHOR_NAME
 " }}}
 " Fugitive {{{
 set diffopt+=vertical
