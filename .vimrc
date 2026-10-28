@@ -134,6 +134,9 @@ augroup END
 
 " Disable Copilot by default
 let g:copilot_enabled = 0
+if has('patch-9.0.0185')
+  packadd copilot.vim
+endif
 
 " }}}
 " Gvim {{{
