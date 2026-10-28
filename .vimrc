@@ -48,7 +48,6 @@
 " [T] -> :tabdel
 
 " Essentials {{{
-set nocp
 filetype plugin indent on
 syntax on
 
@@ -68,15 +67,8 @@ set background=dark
 
 "## BASE16
 try
-  if has('termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  endif
   let g:solarized_contrast = "high"
   colorscheme solarized
-  if !has('termguicolors')
-    hi Folded ctermbg=16
-  endif
 catch
 endtry
 
@@ -128,7 +120,7 @@ autocmd FileType vue setlocal makeprg=npx\ eslint\ -f\ unix\ %
 
 " Technical writting
 autocmd FileType html,markdown,rst,txt,tex setlocal textwidth=79 colorcolumn=80 spell
-autocmd BufEnter,BufNew *.log setlocal nowrap
+autocmd BufEnter *.log setlocal nowrap
 
 " Spec development
 autocmd FileType spec setlocal makeprg=spec-cleaner\ -i\ %
@@ -175,7 +167,6 @@ nnoremap <silent> <F2> :tabprevious<Enter>
 nnoremap <silent> <F3> :tabnext<Enter>
 nnoremap <silent> <F4> :tabnew<Enter>
 nnoremap <silent> <F5> :make
-nnoremap <silent> <F8> :TagbarToggle<Enter>
 nnoremap <silent> <F9> :NERDTreeToggle<Enter>
 try
   call togglebg#map("<F7>")
@@ -213,9 +204,7 @@ cnoreabbrev Cclose cclose
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='powerlineish'
-let g:airline#extensions#branch#displayed_head_limit = 10
 let g:airline#extensions#branch#enabled = 0
-let g:airline#extensions#branch#format = 2
 let g:airline_skip_empty_sections = 1
 let g:airline_section_y = 0
 let g:airline#extensions#whitespace#enabled = 0
