@@ -63,8 +63,8 @@ set background=dark
 
 "## BASE16
 try
-  let g:solarized_contrast = "high"
-  colorscheme solarized
+  let g:solarized_use16 = 1
+  colorscheme solarized8_high
 catch
 endtry
 
@@ -165,10 +165,7 @@ nnoremap <silent> <F3> :tabnext<Enter>
 nnoremap <silent> <F4> :tabnew<Enter>
 nnoremap <silent> <F5> :make
 nnoremap <silent> <F9> :NERDTreeToggle<Enter>
-try
-  call togglebg#map("<F7>")
-catch
-endtry
+nnoremap <silent> <F7> :let &background = &background == 'dark' ? 'light' : 'dark'<Enter>
 "Copilot
 imap <S-Down> <Plug>(copilot-dismiss)
 imap <S-Right> <Plug>(copilot-next)
