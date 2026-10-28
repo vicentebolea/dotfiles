@@ -43,7 +43,7 @@
 "
 " [a] -> :A
 " [s] -> :Git
-" [d] -> :Gdiff
+" [d] -> :Gvdiffsplit
 " [t] -> :tabnew
 " [T] -> :tabdel
 
@@ -89,7 +89,6 @@ set path+=**
 set hidden  " Useful feature, to have multiples buffer open
 set mouse=a
 "set cursorline
-match Error /{{{\|}}}/
 set exrc
 set secure
 
@@ -117,7 +116,7 @@ autocmd!
 autocmd FileType html setlocal sw=2 ts=2 noexpandtab autoindent
 autocmd FileType make setlocal sw=2 ts=2 noexpandtab
 autocmd FileType java setlocal sw=4 ts=4 expandtab
-autocmd FileType sh,bash,csh setlocal makeprg=shellcheck\ %
+autocmd FileType sh,bash,csh setlocal makeprg=shellcheck\ -f\ gcc\ %
 
 " PEP8 compliant
 autocmd FileType python setlocal sw=4 ts=4 sts=4 expandtab textwidth=100 fileformat=unix autoindent makeprg=flake8\ %
@@ -133,17 +132,18 @@ autocmd BufEnter,BufNew *.log setlocal nowrap
 " Spec development
 autocmd FileType spec setlocal makeprg=spec-cleaner\ -i\ %
 autocmd FileType changes setlocal textwidth=67 colorcolumn=67 spell
-augroup END
 
-augroup tabsPolicy
-  autocmd!
-  autocmd BufEnter,BufNew *.tsv setlocal noexpandtab tabstop=6 sw=6
-  autocmd BufEnter,BufNew *.tsv,Makefile,*.make,*.html :let b:SuperTabDisabled=1
-  autocmd BufEnter,BufNew *.tsv,Makefile,*.make,*.html :silent! iunmap <Tab>
-augroup end
+" Tabs policy
+autocmd BufEnter *.tsv setlocal noexpandtab tabstop=6 sw=6
+autocmd BufEnter *.tsv,Makefile,*.make,*.html :let b:SuperTabDisabled=1
+autocmd BufEnter *.tsv,Makefile,*.make,*.html :silent! iunmap <Tab>
 
+" Highlight fold markers and trailing whitespace, once per window
 highlight BadWhitespace ctermbg=red guibg=darkred
-autocmd BufRead,BufNewFile * match BadWhitespace /\s\+$/
+autocmd VimEnter,WinNew,BufWinEnter * if !exists('w:vimrc_match') |
+      \ let w:vimrc_match = [matchadd('Error', '{{{\|}}}'), matchadd('BadWhitespace', '\s\+$')] |
+      \ endif
+augroup END
 
 " Disable Copilot by default
 let g:copilot_enabled = 0
@@ -189,7 +189,7 @@ imap <S-Up> <Plug>(copilot-suggest)
 
 "Customized shortcuts
 nnoremap <silent><leader>a :A<CR>
-nnoremap <silent><leader>d :Gdiff<CR>
+nnoremap <silent><leader>d :Gvdiffsplit<CR>
 nnoremap <silent><leader>T :tabclose<CR>
 nnoremap <silent><leader>t :tabnew<CR>
 
