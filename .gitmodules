@@ -43,7 +43,7 @@
 	url = https://github.com/vicentebolea/cmake-presets-vim.git
 	branch = master
 [submodule ".vim/pack/github/start/copilot.vim"]
-	path = .vim/pack/github/start/copilot.vim
+	path = .vim/pack/github/opt/copilot.vim
 	url = https://github.com/github/copilot.vim.git
   branch = release
 [submodule ".vim/pack/dist/start/vim-easy-align"]
